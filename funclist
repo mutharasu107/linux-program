@@ -1,0 +1,11 @@
+_uart_tx: CODE, 1433 0 12
+_lcd_cmd: CODE, 1503 0 21
+_lcd_data: CODE, 1524 0 21
+_main: CODE, 1545 0 21
+_sensor: CODE, 1788 0 260
+_uart_init: CODE, 1482 0 21
+_lcd_print: CODE, 1623 0 46
+_uart_print: CODE, 1566 0 26
+_led: CODE, 1422 0 11
+_lcd_init: CODE, 1669 0 49
+Total: 488

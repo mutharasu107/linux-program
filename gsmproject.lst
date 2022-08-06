@@ -1,0 +1,2031 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Thu Aug 04 13:26:32 2022
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 3 "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 3 "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+    45  2007  1F7A               	dw 0x1f7a ;#
+    46                           	FNCALL	_main,_lcd_init
+    47                           	FNCALL	_main,_uart_init
+    48                           	FNCALL	_main,_sensor
+    49                           	FNCALL	_sensor,_led
+    50                           	FNCALL	_sensor,_uart_print
+    51                           	FNCALL	_sensor,_lcd_cmd
+    52                           	FNCALL	_sensor,_lcd_print
+    53                           	FNCALL	_sensor,_uart_tx
+    54                           	FNCALL	_lcd_print,_lcd_data
+    55                           	FNCALL	_lcd_init,_lcd_cmd
+    56                           	FNCALL	_uart_print,_uart_tx
+    57                           	FNROOT	_main
+    58                           	global	_send_message
+    59                           	global	_set_sms
+    60                           	global	_mobile_no
+    61                           	global	_no_message
+    62                           	global	_phone
+    63                           	global	_AT
+    64                           psect	idataBANK0,class=CODE,space=0,delta=2
+    65                           global __pidataBANK0
+    66  06B6                     __pidataBANK0:
+    67                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+    68                           	line	14
+    69                           
+    70                           ;initializer for _send_message
+    71  06B6  3448               	retlw	048h
+    72  06B7  3475               	retlw	075h
+    73  06B8  346D               	retlw	06Dh
+    74  06B9  3461               	retlw	061h
+    75  06BA  346E               	retlw	06Eh
+    76  06BB  3420               	retlw	020h
+    77  06BC  3444               	retlw	044h
+    78  06BD  3465               	retlw	065h
+    79  06BE  3474               	retlw	074h
+    80  06BF  3465               	retlw	065h
+    81  06C0  3463               	retlw	063h
+    82  06C1  3474               	retlw	074h
+    83  06C2  3465               	retlw	065h
+    84  06C3  3464               	retlw	064h
+    85  06C4  340D               	retlw	0Dh
+    86  06C5  340A               	retlw	0Ah
+    87  06C6  3400               	retlw	0
+    88                           	line	13
+    89                           
+    90                           ;initializer for _set_sms
+    91  06C7  3441               	retlw	041h
+    92  06C8  3454               	retlw	054h
+    93  06C9  342B               	retlw	02Bh
+    94  06CA  3443               	retlw	043h
+    95  06CB  344D               	retlw	04Dh
+    96  06CC  3447               	retlw	047h
+    97  06CD  3446               	retlw	046h
+    98  06CE  343D               	retlw	03Dh
+    99  06CF  3431               	retlw	031h
+   100  06D0  340D               	retlw	0Dh
+   101  06D1  340A               	retlw	0Ah
+   102  06D2  3400               	retlw	0
+   103                           psect	idataBANK1,class=CODE,space=0,delta=2
+   104                           global __pidataBANK1
+   105  05B6                     __pidataBANK1:
+   106                           	line	15
+   107                           
+   108                           ;initializer for _mobile_no
+   109  05B6  3441               	retlw	041h
+   110  05B7  3454               	retlw	054h
+   111  05B8  342B               	retlw	02Bh
+   112  05B9  3443               	retlw	043h
+   113  05BA  344D               	retlw	04Dh
+   114  05BB  3447               	retlw	047h
+   115  05BC  3453               	retlw	053h
+   116  05BD  343D               	retlw	03Dh
+   117  05BE  344C               	retlw	04Ch
+   118  05BF  3438               	retlw	038h
+   119  05C0  3437               	retlw	037h
+   120  05C1  3438               	retlw	038h
+   121  05C2  3435               	retlw	035h
+   122  05C3  3435               	retlw	035h
+   123  05C4  3434               	retlw	034h
+   124  05C5  3435               	retlw	035h
+   125  05C6  3430               	retlw	030h
+   126  05C7  340D               	retlw	0Dh
+   127  05C8  340A               	retlw	0Ah
+   128  05C9  3400               	retlw	0
+   129                           psect	idataBANK0
+   130                           	line	16
+   131                           
+   132                           ;initializer for _no_message
+   133  06D3  3448               	retlw	048h
+   134  06D4  3475               	retlw	075h
+   135  06D5  346D               	retlw	06Dh
+   136  06D6  3461               	retlw	061h
+   137  06D7  346E               	retlw	06Eh
+   138  06D8  3420               	retlw	020h
+   139  06D9  344E               	retlw	04Eh
+   140  06DA  346F               	retlw	06Fh
+   141  06DB  3474               	retlw	074h
+   142  06DC  3420               	retlw	020h
+   143  06DD  3444               	retlw	044h
+   144  06DE  3465               	retlw	065h
+   145  06DF  3474               	retlw	074h
+   146  06E0  3465               	retlw	065h
+   147  06E1  3463               	retlw	063h
+   148  06E2  3474               	retlw	074h
+   149  06E3  3465               	retlw	065h
+   150  06E4  3464               	retlw	064h
+   151  06E5  3400               	retlw	0
+   152                           	line	12
+   153                           
+   154                           ;initializer for _phone
+   155  06E6  3441               	retlw	041h
+   156  06E7  3454               	retlw	054h
+   157  06E8  3444               	retlw	044h
+   158  06E9  3439               	retlw	039h
+   159  06EA  3434               	retlw	034h
+   160  06EB  3438               	retlw	038h
+   161  06EC  3437               	retlw	037h
+   162  06ED  3438               	retlw	038h
+   163  06EE  3435               	retlw	035h
+   164  06EF  3435               	retlw	035h
+   165  06F0  3434               	retlw	034h
+   166  06F1  3435               	retlw	035h
+   167  06F2  3430               	retlw	030h
+   168  06F3  343B               	retlw	03Bh
+   169  06F4  340D               	retlw	0Dh
+   170  06F5  340A               	retlw	0Ah
+   171  06F6  3400               	retlw	0
+   172                           	line	11
+   173                           
+   174                           ;initializer for _AT
+   175  06F7  3441               	retlw	041h
+   176  06F8  3454               	retlw	054h
+   177  06F9  340D               	retlw	0Dh
+   178  06FA  340A               	retlw	0Ah
+   179  06FB  3400               	retlw	0
+   180                           	global	_PORTB
+   181  0006                     _PORTB	set	6
+   182                           	global	_RCREG
+   183  001A                     _RCREG	set	26
+   184                           	global	_RCSTA
+   185  0018                     _RCSTA	set	24
+   186                           	global	_TXREG
+   187  0019                     _TXREG	set	25
+   188                           	global	_RC0
+   189  0038                     _RC0	set	56
+   190                           	global	_RC1
+   191  0039                     _RC1	set	57
+   192                           	global	_RC2
+   193  003A                     _RC2	set	58
+   194                           	global	_RCIF
+   195  0065                     _RCIF	set	101
+   196                           	global	_RD0
+   197  0040                     _RD0	set	64
+   198                           	global	_RD1
+   199  0041                     _RD1	set	65
+   200                           	global	_TXIF
+   201  0064                     _TXIF	set	100
+   202                           	global	_SPBRG
+   203  0099                     _SPBRG	set	153
+   204                           	global	_TRISB
+   205  0086                     _TRISB	set	134
+   206                           	global	_TXSTA
+   207  0098                     _TXSTA	set	152
+   208                           	global	_TRISC0
+   209  0438                     _TRISC0	set	1080
+   210                           	global	_TRISC1
+   211  0439                     _TRISC1	set	1081
+   212                           	global	_TRISC2
+   213  043A                     _TRISC2	set	1082
+   214                           	global	_TRISC6
+   215  043E                     _TRISC6	set	1086
+   216                           	global	_TRISC7
+   217  043F                     _TRISC7	set	1087
+   218                           	global	_TRISD0
+   219  0440                     _TRISD0	set	1088
+   220                           	global	_TRISD1
+   221  0441                     _TRISD1	set	1089
+   222                           psect	strings,class=STRING,delta=2
+   223                           global __pstrings
+   224  0003                     __pstrings:
+   225                           ;	global	stringdir,stringtab,__stringbase
+   226  0003                     stringtab:
+   227                           ;	String table - string pointers are 1 byte each
+   228  0003                     stringcode:stringdir:
+      + 0003                     stringdir:	
+   229  0003  3000               movlw high(stringdir)
+   230  0004  008A               movwf pclath
+   231  0005  0804               movf fsr,w
+   232  0006  0A84               incf fsr
+   233  0007  0782               	addwf pc
+   234  0008                     __stringbase:
+   235  0008  3400               	retlw	0
+   236                           psect	strings
+   237                           	
+   238  0009                     STR_3:	
+   239  0009  3420               	retlw	32	;' '
+   240  000A  3420               	retlw	32	;' '
+   241  000B  3420               	retlw	32	;' '
+   242  000C  3439               	retlw	57	;'9'
+   243  000D  3434               	retlw	52	;'4'
+   244  000E  3438               	retlw	56	;'8'
+   245  000F  3437               	retlw	55	;'7'
+   246  0010  3438               	retlw	56	;'8'
+   247  0011  3435               	retlw	53	;'5'
+   248  0012  3435               	retlw	53	;'5'
+   249  0013  3434               	retlw	52	;'4'
+   250  0014  3435               	retlw	53	;'5'
+   251  0015  3430               	retlw	48	;'0'
+   252  0016  3420               	retlw	32	;' '
+   253  0017  3420               	retlw	32	;' '
+   254  0018  3420               	retlw	32	;' '
+   255  0019  3400               	retlw	0
+   256                           psect	strings
+   257                           	
+   258  001A                     STR_2:	
+   259  001A  3443               	retlw	67	;'C'
+   260  001B  3461               	retlw	97	;'a'
+   261  001C  346C               	retlw	108	;'l'
+   262  001D  346C               	retlw	108	;'l'
+   263  001E  3469               	retlw	105	;'i'
+   264  001F  346E               	retlw	110	;'n'
+   265  0020  3467               	retlw	103	;'g'
+   266  0021  3420               	retlw	32	;' '
+   267  0022  3420               	retlw	32	;' '
+   268  0023  3420               	retlw	32	;' '
+   269  0024  344E               	retlw	78	;'N'
+   270  0025  3475               	retlw	117	;'u'
+   271  0026  346D               	retlw	109	;'m'
+   272  0027  3462               	retlw	98	;'b'
+   273  0028  3465               	retlw	101	;'e'
+   274  0029  3472               	retlw	114	;'r'
+   275  002A  3400               	retlw	0
+   276                           psect	strings
+   277                           	
+   278  002B                     STR_1:	
+   279  002B  3441               	retlw	65	;'A'
+   280  002C  346E               	retlw	110	;'n'
+   281  002D  3469               	retlw	105	;'i'
+   282  002E  346D               	retlw	109	;'m'
+   283  002F  3461               	retlw	97	;'a'
+   284  0030  346C               	retlw	108	;'l'
+   285  0031  3420               	retlw	32	;' '
+   286  0032  3444               	retlw	68	;'D'
+   287  0033  3465               	retlw	101	;'e'
+   288  0034  3474               	retlw	116	;'t'
+   289  0035  3465               	retlw	101	;'e'
+   290  0036  3463               	retlw	99	;'c'
+   291  0037  3474               	retlw	116	;'t'
+   292  0038  3465               	retlw	101	;'e'
+   293  0039  3464               	retlw	100	;'d'
+   294  003A  3400               	retlw	0
+   295                           psect	strings
+   296                           	file	"gsmproject.as"
+   297                           	line	#
+   298                           psect cinit,class=CODE,delta=2
+   299                           global start_initialization
+   300  0638                     start_initialization:
+   301                           
+   302                           psect	dataBANK0,class=BANK0,space=1
+   303                           global __pdataBANK0
+   304  0020                     __pdataBANK0:
+   305                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   306                           	line	14
+   307  0020                     _send_message:
+   308  0020                            ds      17
+   309                           
+   310                           psect	dataBANK0
+   311                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   312                           	line	13
+   313  0031                     _set_sms:
+   314  0031                            ds      12
+   315                           
+   316                           psect	dataBANK0
+   317                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   318                           	line	16
+   319  003D                     _no_message:
+   320  003D                            ds      19
+   321                           
+   322                           psect	dataBANK0
+   323                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   324                           	line	12
+   325  0050                     _phone:
+   326  0050                            ds      17
+   327                           
+   328                           psect	dataBANK0
+   329                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   330                           	line	11
+   331  0061                     _AT:
+   332  0061                            ds      5
+   333                           
+   334                           psect	dataBANK1,class=BANK1,space=1
+   335                           global __pdataBANK1
+   336  00A0                     __pdataBANK1:
+   337                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   338                           	line	15
+   339  00A0                     _mobile_no:
+   340  00A0                            ds      20
+   341                           
+   342                           global btemp
+   343                           psect inittext,class=CODE,delta=2
+   344                           global init_fetch,btemp
+   345                           ;	Called with low address in FSR and high address in W
+   346  05A5                     init_fetch:
+   347  05A5  087E               	movf btemp,w
+   348  05A6  008A               	movwf pclath
+   349  05A7  087F               	movf btemp+1,w
+   350  05A8  0082               	movwf pc
+   351                           global init_ram
+   352                           ;Called with:
+   353                           ;	high address of idata address in btemp 
+   354                           ;	low address of idata address in btemp+1 
+   355                           ;	low address of data in FSR
+   356                           ;	high address + 1 of data in btemp-1
+   357  05A9                     init_ram:
+   358  05A9  25A5  120A  118A   	fcall init_fetch
+   359  05AC  0080               	movwf indf,f
+   360  05AD  0A84               	incf fsr,f
+   361  05AE  0804               	movf fsr,w
+   362  05AF  067D               	xorwf btemp-1,w
+   363  05B0  1903               	btfsc status,2
+   364  05B1  3400               	retlw 0
+   365  05B2  0AFF               	incf btemp+1,f
+   366  05B3  1903               	btfsc status,2
+   367  05B4  0AFE               	incf btemp,f
+   368  05B5  2DA9               	goto init_ram
+   369                           ; Initialize objects allocated to BANK1
+   370                           psect cinit,class=CODE,delta=2
+   371                           global init_ram, __pidataBANK1
+   372  0638  1383               	bcf	status, 7	;select IRP bank0
+   373  0639  30B4               	movlw low(__pdataBANK1+20)
+   374  063A  00FD               	movwf btemp-1,f
+   375  063B  3005               	movlw high(__pidataBANK1)
+   376  063C  00FE               	movwf btemp,f
+   377  063D  30B6               	movlw low(__pidataBANK1)
+   378  063E  00FF               	movwf btemp+1,f
+   379  063F  30A0               	movlw low(__pdataBANK1)
+   380  0640  0084               	movwf fsr,f
+   381  0641  120A  118A  25A9   	fcall init_ram
+              120A  118A         
+   382                           ; Initialize objects allocated to BANK0
+   383                           psect cinit,class=CODE,delta=2
+   384                           global init_ram, __pidataBANK0
+   385  0646  3066               	movlw low(__pdataBANK0+70)
+   386  0647  00FD               	movwf btemp-1,f
+   387  0648  3006               	movlw high(__pidataBANK0)
+   388  0649  00FE               	movwf btemp,f
+   389  064A  30B6               	movlw low(__pidataBANK0)
+   390  064B  00FF               	movwf btemp+1,f
+   391  064C  3020               	movlw low(__pdataBANK0)
+   392  064D  0084               	movwf fsr,f
+   393  064E  120A  118A  25A9   	fcall init_ram
+              120A  118A         
+   394                           psect cinit,class=CODE,delta=2
+   395                           global end_of_initialization
+   396                           
+   397                           ;End of C runtime variable initialization code
+   398                           
+   399  0653                     end_of_initialization:
+   400  0653  0183               clrf status
+   401  0654  120A  118A  2E09   ljmp _main	;jump to C main() function
+   402                           psect	cstackCOMMON,class=COMMON,space=1
+   403                           global __pcstackCOMMON
+   404  0070                     __pcstackCOMMON:
+   405                           	global	?_uart_tx
+   406  0070                     ?_uart_tx:	; 0 bytes @ 0x0
+   407                           	global	??_uart_tx
+   408  0070                     ??_uart_tx:	; 0 bytes @ 0x0
+   409                           	global	?_uart_print
+   410  0070                     ?_uart_print:	; 0 bytes @ 0x0
+   411                           	global	?_led
+   412  0070                     ?_led:	; 0 bytes @ 0x0
+   413                           	global	??_led
+   414  0070                     ??_led:	; 0 bytes @ 0x0
+   415                           	global	?_uart_init
+   416  0070                     ?_uart_init:	; 0 bytes @ 0x0
+   417                           	global	??_uart_init
+   418  0070                     ??_uart_init:	; 0 bytes @ 0x0
+   419                           	global	?_lcd_cmd
+   420  0070                     ?_lcd_cmd:	; 0 bytes @ 0x0
+   421                           	global	??_lcd_cmd
+   422  0070                     ??_lcd_cmd:	; 0 bytes @ 0x0
+   423                           	global	?_lcd_data
+   424  0070                     ?_lcd_data:	; 0 bytes @ 0x0
+   425                           	global	??_lcd_data
+   426  0070                     ??_lcd_data:	; 0 bytes @ 0x0
+   427                           	global	?_lcd_init
+   428  0070                     ?_lcd_init:	; 0 bytes @ 0x0
+   429                           	global	?_lcd_print
+   430  0070                     ?_lcd_print:	; 0 bytes @ 0x0
+   431                           	global	?_sensor
+   432  0070                     ?_sensor:	; 0 bytes @ 0x0
+   433                           	global	?_main
+   434  0070                     ?_main:	; 2 bytes @ 0x0
+   435                           	global	uart_tx@data
+   436  0070                     uart_tx@data:	; 1 bytes @ 0x0
+   437  0070                     	ds	1
+   438                           	global	??_uart_print
+   439  0071                     ??_uart_print:	; 0 bytes @ 0x1
+   440  0071                     	ds	1
+   441                           	global	uart_print@s
+   442  0072                     uart_print@s:	; 1 bytes @ 0x2
+   443                           	global	lcd_cmd@cmd
+   444  0072                     lcd_cmd@cmd:	; 1 bytes @ 0x2
+   445                           	global	lcd_data@data
+   446  0072                     lcd_data@data:	; 1 bytes @ 0x2
+   447  0072                     	ds	1
+   448                           	global	??_lcd_init
+   449  0073                     ??_lcd_init:	; 0 bytes @ 0x3
+   450                           	global	??_lcd_print
+   451  0073                     ??_lcd_print:	; 0 bytes @ 0x3
+   452  0073                     	ds	3
+   453                           	global	lcd_print@str
+   454  0076                     lcd_print@str:	; 1 bytes @ 0x6
+   455  0076                     	ds	1
+   456                           	global	??_sensor
+   457  0077                     ??_sensor:	; 0 bytes @ 0x7
+   458  0077                     	ds	3
+   459                           	global	sensor@k
+   460  007A                     sensor@k:	; 2 bytes @ 0xA
+   461  007A                     	ds	2
+   462                           	global	??_main
+   463  007C                     ??_main:	; 0 bytes @ 0xC
+   464 ;;Data sizes: Strings 50, constant 0, data 90, bss 0, persistent 0 stack 0
+   465 ;;Auto spaces:   Size  Autos    Used
+   466 ;; COMMON          14     12      12
+   467 ;; BANK0           80      0      70
+   468 ;; BANK1           80      0      20
+   469 ;; BANK3           96      0       0
+   470 ;; BANK2           96      0       0
+   471                           
+   472 ;;
+   473 ;; Pointer list with targets:
+   474                           
+   475 ;; lcd_print@str	PTR unsigned char  size(1) Largest target is 17
+   476 ;;		 -> STR_3(CODE[17]), STR_2(CODE[17]), STR_1(CODE[16]), 
+   477 ;;
+   478 ;; uart_print@s	PTR unsigned char  size(1) Largest target is 19
+   479 ;;		 -> no_message(BANK0[19]), phone(BANK0[17]), AT(BANK0[5]), 
+   480 ;;
+   481                           
+   482                           
+   483 ;;
+   484 ;; Critical Paths under _main in COMMON
+   485 ;;
+   486 ;;   _main->_sensor
+   487 ;;   _sensor->_lcd_print
+   488 ;;   _lcd_print->_lcd_data
+   489 ;;   _lcd_init->_lcd_cmd
+   490 ;;   _uart_print->_uart_tx
+   491 ;;
+   492 ;; Critical Paths under _main in BANK0
+   493 ;;
+   494 ;;   None.
+   495 ;;
+   496 ;; Critical Paths under _main in BANK1
+   497 ;;
+   498 ;;   None.
+   499 ;;
+   500 ;; Critical Paths under _main in BANK3
+   501 ;;
+   502 ;;   None.
+   503 ;;
+   504 ;; Critical Paths under _main in BANK2
+   505 ;;
+   506 ;;   None.
+   507                           
+   508 ;;
+   509 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   510 ;;
+   511                           
+   512 ;;
+   513 ;;Call Graph Tables:
+   514 ;;
+   515 ;; ---------------------------------------------------------------------------------
+   516 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   517 ;; ---------------------------------------------------------------------------------
+   518 ;; (0) _main                                                 0     0      0     223
+   519 ;;                           _lcd_init
+   520 ;;                          _uart_init
+   521 ;;                             _sensor
+   522 ;; ---------------------------------------------------------------------------------
+   523 ;; (1) _sensor                                               9     9      0     201
+   524 ;;                                              7 COMMON     5     5      0
+   525 ;;                                _led
+   526 ;;                         _uart_print
+   527 ;;                            _lcd_cmd
+   528 ;;                          _lcd_print
+   529 ;;                            _uart_tx
+   530 ;; ---------------------------------------------------------------------------------
+   531 ;; (2) _lcd_print                                            4     4      0      67
+   532 ;;                                              3 COMMON     4     4      0
+   533 ;;                           _lcd_data
+   534 ;; ---------------------------------------------------------------------------------
+   535 ;; (1) _lcd_init                                             0     0      0      22
+   536 ;;                            _lcd_cmd
+   537 ;; ---------------------------------------------------------------------------------
+   538 ;; (3) _lcd_data                                             3     3      0      22
+   539 ;;                                              0 COMMON     3     3      0
+   540 ;; ---------------------------------------------------------------------------------
+   541 ;; (2) _lcd_cmd                                              3     3      0      22
+   542 ;;                                              0 COMMON     3     3      0
+   543 ;; ---------------------------------------------------------------------------------
+   544 ;; (2) _uart_print                                           2     2      0      67
+   545 ;;                                              1 COMMON     2     2      0
+   546 ;;                            _uart_tx
+   547 ;; ---------------------------------------------------------------------------------
+   548 ;; (1) _uart_init                                            0     0      0       0
+   549 ;; ---------------------------------------------------------------------------------
+   550 ;; (2) _led                                                  0     0      0       0
+   551 ;; ---------------------------------------------------------------------------------
+   552 ;; (2) _uart_tx                                              1     1      0      22
+   553 ;;                                              0 COMMON     1     1      0
+   554 ;; ---------------------------------------------------------------------------------
+   555 ;; Estimated maximum stack depth 3
+   556 ;; ---------------------------------------------------------------------------------
+   557                           
+   558 ;; Call Graph Graphs:
+   559                           
+   560 ;; _main (ROOT)
+   561 ;;   _lcd_init
+   562 ;;     _lcd_cmd
+   563 ;;   _uart_init
+   564 ;;   _sensor
+   565 ;;     _led
+   566 ;;     _uart_print
+   567 ;;       _uart_tx
+   568 ;;     _lcd_cmd
+   569 ;;     _lcd_print
+   570 ;;       _lcd_data
+   571 ;;     _uart_tx
+   572 ;;
+   573                           
+   574 ;; Address spaces:
+   575                           
+   576 ;;Name               Size   Autos  Total    Cost      Usage
+   577 ;;BANK3               60      0       0       9        0.0%
+   578 ;;BITBANK3            60      0       0       8        0.0%
+   579 ;;SFR3                 0      0       0       4        0.0%
+   580 ;;BITSFR3              0      0       0       4        0.0%
+   581 ;;BANK2               60      0       0      11        0.0%
+   582 ;;BITBANK2            60      0       0      10        0.0%
+   583 ;;SFR2                 0      0       0       5        0.0%
+   584 ;;BITSFR2              0      0       0       5        0.0%
+   585 ;;SFR1                 0      0       0       2        0.0%
+   586 ;;BITSFR1              0      0       0       2        0.0%
+   587 ;;BANK1               50      0      14       7       25.0%
+   588 ;;BITBANK1            50      0       0       6        0.0%
+   589 ;;CODE                 0      0       0       0        0.0%
+   590 ;;DATA                 0      0      69      12        0.0%
+   591 ;;ABS                  0      0      66       3        0.0%
+   592 ;;NULL                 0      0       0       0        0.0%
+   593 ;;STACK                0      0       3       2        0.0%
+   594 ;;BANK0               50      0      46       5       87.5%
+   595 ;;BITBANK0            50      0       0       4        0.0%
+   596 ;;SFR0                 0      0       0       1        0.0%
+   597 ;;BITSFR0              0      0       0       1        0.0%
+   598 ;;COMMON               E      C       C       1       85.7%
+   599 ;;BITCOMMON            E      0       0       0        0.0%
+   600 ;;EEDATA             100      0       0       0        0.0%
+   601                           
+   602                           	global	_main
+   603                           psect	maintext,global,class=CODE,delta=2
+   604                           global __pmaintext
+   605  0609                     __pmaintext:
+   606                           
+   607 ;; *************** function _main *****************
+   608 ;; Defined at:
+   609 ;;		line 156 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   610 ;; Parameters:    Size  Location     Type
+   611 ;;		None
+   612 ;; Auto vars:     Size  Location     Type
+   613 ;;		None
+   614 ;; Return value:  Size  Location     Type
+   615 ;;                  2  745[COMMON] int 
+   616 ;; Registers used:
+   617 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   618 ;; Tracked objects:
+   619 ;;		On entry : 17F/0
+   620 ;;		On exit  : 0/0
+   621 ;;		Unchanged: 0/0
+   622 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   623 ;;      Params:         0       0       0       0       0
+   624 ;;      Locals:         0       0       0       0       0
+   625 ;;      Temps:          0       0       0       0       0
+   626 ;;      Totals:         0       0       0       0       0
+   627 ;;Total ram usage:        0 bytes
+   628 ;; Hardware stack levels required when called:    3
+   629 ;; This function calls:
+   630 ;;		_lcd_init
+   631 ;;		_uart_init
+   632 ;;		_sensor
+   633 ;; This function is called by:
+   634 ;;		Startup code after reset
+   635 ;; This function uses a non-reentrant model
+   636 ;;
+   637                           psect	maintext
+   638                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   639                           	line	156
+   640                           	global	__size_of_main
+   641  0015                     	__size_of_main	equ	__end_of_main-_main
+   642                           	
+   643  0609                     _main:	
+   644                           	opt	stack 5
+   645                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   646                           	line	157
+   647                           	
+   648  0609                     l2138:	
+   649                           ;project.c: 157: lcd_init();
+   650  0609  120A  118A  2685   	fcall	_lcd_init
+              120A  118A         
+   651                           	line	158
+   652                           ;project.c: 158: uart_init();
+   653  060E  120A  118A  25CA   	fcall	_uart_init
+              120A  118A         
+   654  0613  2E14               	goto	l2140
+   655                           	line	160
+   656                           ;project.c: 160: while(1)
+   657                           	
+   658  0614                     l746:	
+   659                           	line	162
+   660                           	
+   661  0614                     l2140:	
+   662                           ;project.c: 161: {
+   663                           ;project.c: 162: sensor();
+   664  0614  120A  118A  26FC   	fcall	_sensor
+              120A  118A         
+   665  0619  2E14               	goto	l2140
+   666                           	line	163
+   667                           	
+   668  061A                     l747:	
+   669                           	line	160
+   670  061A  2E14               	goto	l2140
+   671                           	
+   672  061B                     l748:	
+   673                           	line	164
+   674                           	
+   675  061B                     l749:	
+   676                           	global	start
+   677  061B  120A  118A  2800   	ljmp	start
+   678                           	opt stack 0
+   679                           GLOBAL	__end_of_main
+   680  061E                     	__end_of_main:
+   681 ;; =============== function _main ends ============
+   682                           
+   683                           	signat	_main,90
+   684                           	global	_sensor
+   685                           psect	text247,local,class=CODE,delta=2
+   686                           global __ptext247
+   687  06FC                     __ptext247:
+   688                           
+   689 ;; *************** function _sensor *****************
+   690 ;; Defined at:
+   691 ;;		line 111 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   692 ;; Parameters:    Size  Location     Type
+   693 ;;		None
+   694 ;; Auto vars:     Size  Location     Type
+   695 ;;  k               2   10[COMMON] int 
+   696 ;;  j               2    0        int 
+   697 ;;  i               2    0        int 
+   698 ;; Return value:  Size  Location     Type
+   699 ;;		None               void
+   700 ;; Registers used:
+   701 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   702 ;; Tracked objects:
+   703 ;;		On entry : 0/0
+   704 ;;		On exit  : 0/0
+   705 ;;		Unchanged: 0/0
+   706 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   707 ;;      Params:         0       0       0       0       0
+   708 ;;      Locals:         2       0       0       0       0
+   709 ;;      Temps:          3       0       0       0       0
+   710 ;;      Totals:         5       0       0       0       0
+   711 ;;Total ram usage:        5 bytes
+   712 ;; Hardware stack levels used:    1
+   713 ;; Hardware stack levels required when called:    2
+   714 ;; This function calls:
+   715 ;;		_led
+   716 ;;		_uart_print
+   717 ;;		_lcd_cmd
+   718 ;;		_lcd_print
+   719 ;;		_uart_tx
+   720 ;; This function is called by:
+   721 ;;		_main
+   722 ;; This function uses a non-reentrant model
+   723 ;;
+   724                           psect	text247
+   725                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+   726                           	line	111
+   727                           	global	__size_of_sensor
+   728  0104                     	__size_of_sensor	equ	__end_of_sensor-_sensor
+   729                           	
+   730  06FC                     _sensor:	
+   731                           	opt	stack 5
+   732                           ; Regs used in _sensor: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   733                           	line	113
+   734                           	
+   735  06FC                     l2080:	
+   736                           ;project.c: 113: int i,j,k=0;
+   737  06FC  01FA               	clrf	(sensor@k)
+   738  06FD  01FB               	clrf	(sensor@k+1)
+   739                           	line	114
+   740                           	
+   741  06FE                     l2082:	
+   742                           ;project.c: 114: if(RD1==1)
+   743  06FE  1283               	bcf	status, 5	;RP0=0, select bank0
+   744  06FF  1303               	bcf	status, 6	;RP1=0, select bank0
+   745  0700  1C88               	btfss	(65/8),(65)&7
+   746  0701  2F03               	goto	u2251
+   747  0702  2F04               	goto	u2250
+   748  0703                     u2251:
+   749  0703  2FE1               	goto	l2130
+   750  0704                     u2250:
+   751                           	line	116
+   752                           	
+   753  0704                     l2084:	
+   754                           ;project.c: 115: {
+   755                           ;project.c: 116: led();
+   756  0704  120A  118A  258E   	fcall	_led
+              120A  118A         
+   757                           	line	117
+   758                           	
+   759  0709                     l2086:	
+   760                           ;project.c: 117: if(k==0)
+   761  0709  087B               	movf	((sensor@k+1)),w
+   762  070A  047A               	iorwf	((sensor@k)),w
+   763  070B  1D03               	skipz
+   764  070C  2F0E               	goto	u2261
+   765  070D  2F0F               	goto	u2260
+   766  070E                     u2261:
+   767  070E  2FFF               	goto	l743
+   768  070F                     u2260:
+   769                           	line	119
+   770                           	
+   771  070F                     l2088:	
+   772                           ;project.c: 118: {
+   773                           ;project.c: 119: uart_print(AT);
+   774  070F  3061               	movlw	(_AT)&0ffh
+   775  0710  120A  118A  261E   	fcall	_uart_print
+              120A  118A         
+   776                           	line	120
+   777                           	
+   778  0715                     l2090:	
+   779                           ;project.c: 120: _delay((unsigned long)((100)*(20000000/4000.0)));
+   780                           	opt asmopt_off
+   781  0715  3003               movlw  3
+   782  0716  00F9               movwf	((??_sensor+0)+0+2),f
+   783  0717  3088               movlw	136
+   784  0718  00F8               movwf	((??_sensor+0)+0+1),f
+   785  0719  3056               	movlw	86
+   786  071A  00F7               movwf	((??_sensor+0)+0),f
+   787  071B                     u2277:
+   788  071B  0BF7               	decfsz	((??_sensor+0)+0),f
+   789  071C  2F1B               	goto	u2277
+   790  071D  0BF8               	decfsz	((??_sensor+0)+0+1),f
+   791  071E  2F1B               	goto	u2277
+   792  071F  0BF9               	decfsz	((??_sensor+0)+0+2),f
+   793  0720  2F1B               	goto	u2277
+   794                           opt asmopt_on
+   795                           
+   796                           	line	122
+   797                           	
+   798  0721                     l2092:	
+   799                           ;project.c: 122: uart_print(phone);
+   800  0721  3050               	movlw	(_phone)&0ffh
+   801  0722  120A  118A  261E   	fcall	_uart_print
+              120A  118A         
+   802                           	line	124
+   803                           	
+   804  0727                     l2094:	
+   805                           ;project.c: 124: lcd_cmd(0x01);
+   806  0727  3001               	movlw	(01h)
+   807  0728  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+   808                           	line	125
+   809                           	
+   810  072D                     l2096:	
+   811                           ;project.c: 125: lcd_cmd(0x80);
+   812  072D  3080               	movlw	(080h)
+   813  072E  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+   814                           	line	126
+   815                           	
+   816  0733                     l2098:	
+   817                           ;project.c: 126: lcd_print("Animal Detected");
+   818  0733  3023               	movlw	((STR_1-__stringbase))&0ffh
+   819  0734  120A  118A  2657   	fcall	_lcd_print
+              120A  118A         
+   820                           	line	127
+   821                           	
+   822  0739                     l2100:	
+   823                           ;project.c: 127: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   824                           	opt asmopt_off
+   825  0739  304C               movlw  76
+   826  073A  00F9               movwf	((??_sensor+0)+0+2),f
+   827  073B  30CE               movlw	206
+   828  073C  00F8               movwf	((??_sensor+0)+0+1),f
+   829  073D  3081               	movlw	129
+   830  073E  00F7               movwf	((??_sensor+0)+0),f
+   831  073F                     u2287:
+   832  073F  0BF7               	decfsz	((??_sensor+0)+0),f
+   833  0740  2F3F               	goto	u2287
+   834  0741  0BF8               	decfsz	((??_sensor+0)+0+1),f
+   835  0742  2F3F               	goto	u2287
+   836  0743  0BF9               	decfsz	((??_sensor+0)+0+2),f
+   837  0744  2F3F               	goto	u2287
+   838  0745  0064               	clrwdt
+   839                           opt asmopt_on
+   840                           
+   841                           	line	129
+   842                           	
+   843  0746                     l2102:	
+   844                           ;project.c: 129: lcd_cmd(0x01);
+   845  0746  3001               	movlw	(01h)
+   846  0747  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+   847                           	line	130
+   848                           	
+   849  074C                     l2104:	
+   850                           ;project.c: 130: lcd_cmd(0x80);
+   851  074C  3080               	movlw	(080h)
+   852  074D  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+   853                           	line	131
+   854                           ;project.c: 131: lcd_print("Calling   Number");
+   855  0752  3012               	movlw	((STR_2-__stringbase))&0ffh
+   856  0753  120A  118A  2657   	fcall	_lcd_print
+              120A  118A         
+   857                           	line	132
+   858                           	
+   859  0758                     l2106:	
+   860                           ;project.c: 132: lcd_cmd(0xc0);
+   861  0758  30C0               	movlw	(0C0h)
+   862  0759  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+   863                           	line	133
+   864                           	
+   865  075E                     l2108:	
+   866                           ;project.c: 133: lcd_print("   9487855450   ");
+   867  075E  3001               	movlw	((STR_3-__stringbase))&0ffh
+   868  075F  120A  118A  2657   	fcall	_lcd_print
+              120A  118A         
+   869                           	line	134
+   870                           	
+   871  0764                     l2110:	
+   872                           ;project.c: 134: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   873                           	opt asmopt_off
+   874  0764  304C               movlw  76
+   875  0765  00F9               movwf	((??_sensor+0)+0+2),f
+   876  0766  30CE               movlw	206
+   877  0767  00F8               movwf	((??_sensor+0)+0+1),f
+   878  0768  3081               	movlw	129
+   879  0769  00F7               movwf	((??_sensor+0)+0),f
+   880  076A                     u2297:
+   881  076A  0BF7               	decfsz	((??_sensor+0)+0),f
+   882  076B  2F6A               	goto	u2297
+   883  076C  0BF8               	decfsz	((??_sensor+0)+0+1),f
+   884  076D  2F6A               	goto	u2297
+   885  076E  0BF9               	decfsz	((??_sensor+0)+0+2),f
+   886  076F  2F6A               	goto	u2297
+   887  0770  0064               	clrwdt
+   888                           opt asmopt_on
+   889                           
+   890                           	line	135
+   891                           	
+   892  0771                     l2112:	
+   893                           ;project.c: 135: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   894                           	opt asmopt_off
+   895  0771  304C               movlw  76
+   896  0772  00F9               movwf	((??_sensor+0)+0+2),f
+   897  0773  30CE               movlw	206
+   898  0774  00F8               movwf	((??_sensor+0)+0+1),f
+   899  0775  3081               	movlw	129
+   900  0776  00F7               movwf	((??_sensor+0)+0),f
+   901  0777                     u2307:
+   902  0777  0BF7               	decfsz	((??_sensor+0)+0),f
+   903  0778  2F77               	goto	u2307
+   904  0779  0BF8               	decfsz	((??_sensor+0)+0+1),f
+   905  077A  2F77               	goto	u2307
+   906  077B  0BF9               	decfsz	((??_sensor+0)+0+2),f
+   907  077C  2F77               	goto	u2307
+   908  077D  0064               	clrwdt
+   909                           opt asmopt_on
+   910                           
+   911                           	line	136
+   912                           	
+   913  077E                     l2114:	
+   914                           ;project.c: 136: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   915                           	opt asmopt_off
+   916  077E  304C               movlw  76
+   917  077F  00F9               movwf	((??_sensor+0)+0+2),f
+   918  0780  30CE               movlw	206
+   919  0781  00F8               movwf	((??_sensor+0)+0+1),f
+   920  0782  3081               	movlw	129
+   921  0783  00F7               movwf	((??_sensor+0)+0),f
+   922  0784                     u2317:
+   923  0784  0BF7               	decfsz	((??_sensor+0)+0),f
+   924  0785  2F84               	goto	u2317
+   925  0786  0BF8               	decfsz	((??_sensor+0)+0+1),f
+   926  0787  2F84               	goto	u2317
+   927  0788  0BF9               	decfsz	((??_sensor+0)+0+2),f
+   928  0789  2F84               	goto	u2317
+   929  078A  0064               	clrwdt
+   930                           opt asmopt_on
+   931                           
+   932                           	line	137
+   933                           	
+   934  078B                     l2116:	
+   935                           ;project.c: 137: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   936                           	opt asmopt_off
+   937  078B  304C               movlw  76
+   938  078C  00F9               movwf	((??_sensor+0)+0+2),f
+   939  078D  30CE               movlw	206
+   940  078E  00F8               movwf	((??_sensor+0)+0+1),f
+   941  078F  3081               	movlw	129
+   942  0790  00F7               movwf	((??_sensor+0)+0),f
+   943  0791                     u2327:
+   944  0791  0BF7               	decfsz	((??_sensor+0)+0),f
+   945  0792  2F91               	goto	u2327
+   946  0793  0BF8               	decfsz	((??_sensor+0)+0+1),f
+   947  0794  2F91               	goto	u2327
+   948  0795  0BF9               	decfsz	((??_sensor+0)+0+2),f
+   949  0796  2F91               	goto	u2327
+   950  0797  0064               	clrwdt
+   951                           opt asmopt_on
+   952                           
+   953                           	line	138
+   954                           	
+   955  0798                     l2118:	
+   956                           ;project.c: 138: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   957                           	opt asmopt_off
+   958  0798  304C               movlw  76
+   959  0799  00F9               movwf	((??_sensor+0)+0+2),f
+   960  079A  30CE               movlw	206
+   961  079B  00F8               movwf	((??_sensor+0)+0+1),f
+   962  079C  3081               	movlw	129
+   963  079D  00F7               movwf	((??_sensor+0)+0),f
+   964  079E                     u2337:
+   965  079E  0BF7               	decfsz	((??_sensor+0)+0),f
+   966  079F  2F9E               	goto	u2337
+   967  07A0  0BF8               	decfsz	((??_sensor+0)+0+1),f
+   968  07A1  2F9E               	goto	u2337
+   969  07A2  0BF9               	decfsz	((??_sensor+0)+0+2),f
+   970  07A3  2F9E               	goto	u2337
+   971  07A4  0064               	clrwdt
+   972                           opt asmopt_on
+   973                           
+   974                           	line	139
+   975                           	
+   976  07A5                     l2120:	
+   977                           ;project.c: 139: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   978                           	opt asmopt_off
+   979  07A5  304C               movlw  76
+   980  07A6  00F9               movwf	((??_sensor+0)+0+2),f
+   981  07A7  30CE               movlw	206
+   982  07A8  00F8               movwf	((??_sensor+0)+0+1),f
+   983  07A9  3081               	movlw	129
+   984  07AA  00F7               movwf	((??_sensor+0)+0),f
+   985  07AB                     u2347:
+   986  07AB  0BF7               	decfsz	((??_sensor+0)+0),f
+   987  07AC  2FAB               	goto	u2347
+   988  07AD  0BF8               	decfsz	((??_sensor+0)+0+1),f
+   989  07AE  2FAB               	goto	u2347
+   990  07AF  0BF9               	decfsz	((??_sensor+0)+0+2),f
+   991  07B0  2FAB               	goto	u2347
+   992  07B1  0064               	clrwdt
+   993                           opt asmopt_on
+   994                           
+   995                           	line	140
+   996                           	
+   997  07B2                     l2122:	
+   998                           ;project.c: 140: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   999                           	opt asmopt_off
+  1000  07B2  304C               movlw  76
+  1001  07B3  00F9               movwf	((??_sensor+0)+0+2),f
+  1002  07B4  30CE               movlw	206
+  1003  07B5  00F8               movwf	((??_sensor+0)+0+1),f
+  1004  07B6  3081               	movlw	129
+  1005  07B7  00F7               movwf	((??_sensor+0)+0),f
+  1006  07B8                     u2357:
+  1007  07B8  0BF7               	decfsz	((??_sensor+0)+0),f
+  1008  07B9  2FB8               	goto	u2357
+  1009  07BA  0BF8               	decfsz	((??_sensor+0)+0+1),f
+  1010  07BB  2FB8               	goto	u2357
+  1011  07BC  0BF9               	decfsz	((??_sensor+0)+0+2),f
+  1012  07BD  2FB8               	goto	u2357
+  1013  07BE  0064               	clrwdt
+  1014                           opt asmopt_on
+  1015                           
+  1016                           	line	141
+  1017                           	
+  1018  07BF                     l2124:	
+  1019                           ;project.c: 141: _delay((unsigned long)((3000)*(20000000/4000.0)));
+  1020                           	opt asmopt_off
+  1021  07BF  304C               movlw  76
+  1022  07C0  00F9               movwf	((??_sensor+0)+0+2),f
+  1023  07C1  30CE               movlw	206
+  1024  07C2  00F8               movwf	((??_sensor+0)+0+1),f
+  1025  07C3  3081               	movlw	129
+  1026  07C4  00F7               movwf	((??_sensor+0)+0),f
+  1027  07C5                     u2367:
+  1028  07C5  0BF7               	decfsz	((??_sensor+0)+0),f
+  1029  07C6  2FC5               	goto	u2367
+  1030  07C7  0BF8               	decfsz	((??_sensor+0)+0+1),f
+  1031  07C8  2FC5               	goto	u2367
+  1032  07C9  0BF9               	decfsz	((??_sensor+0)+0+2),f
+  1033  07CA  2FC5               	goto	u2367
+  1034  07CB  0064               	clrwdt
+  1035                           opt asmopt_on
+  1036                           
+  1037                           	line	142
+  1038                           	
+  1039  07CC                     l2126:	
+  1040                           ;project.c: 142: _delay((unsigned long)((3000)*(20000000/4000.0)));
+  1041                           	opt asmopt_off
+  1042  07CC  304C               movlw  76
+  1043  07CD  00F9               movwf	((??_sensor+0)+0+2),f
+  1044  07CE  30CE               movlw	206
+  1045  07CF  00F8               movwf	((??_sensor+0)+0+1),f
+  1046  07D0  3081               	movlw	129
+  1047  07D1  00F7               movwf	((??_sensor+0)+0),f
+  1048  07D2                     u2377:
+  1049  07D2  0BF7               	decfsz	((??_sensor+0)+0),f
+  1050  07D3  2FD2               	goto	u2377
+  1051  07D4  0BF8               	decfsz	((??_sensor+0)+0+1),f
+  1052  07D5  2FD2               	goto	u2377
+  1053  07D6  0BF9               	decfsz	((??_sensor+0)+0+2),f
+  1054  07D7  2FD2               	goto	u2377
+  1055  07D8  0064               	clrwdt
+  1056                           opt asmopt_on
+  1057                           
+  1058                           	line	143
+  1059                           	
+  1060  07D9                     l2128:	
+  1061                           ;project.c: 143: lcd_cmd(0x01);
+  1062  07D9  3001               	movlw	(01h)
+  1063  07DA  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+  1064  07DF  2FFF               	goto	l743
+  1065                           	line	144
+  1066                           	
+  1067  07E0                     l741:	
+  1068                           	line	145
+  1069                           ;project.c: 144: }
+  1070                           ;project.c: 145: }
+  1071  07E0  2FFF               	goto	l743
+  1072                           	line	146
+  1073                           	
+  1074  07E1                     l740:	
+  1075                           	line	148
+  1076                           	
+  1077  07E1                     l2130:	
+  1078                           ;project.c: 146: else
+  1079                           ;project.c: 147: {
+  1080                           ;project.c: 148: led();
+  1081  07E1  120A  118A  258E   	fcall	_led
+              120A  118A         
+  1082                           	line	149
+  1083                           	
+  1084  07E6                     l2132:	
+  1085                           ;project.c: 149: uart_print(no_message);
+  1086  07E6  303D               	movlw	(_no_message)&0ffh
+  1087  07E7  120A  118A  261E   	fcall	_uart_print
+              120A  118A         
+  1088                           	line	150
+  1089                           	
+  1090  07EC                     l2134:	
+  1091                           ;project.c: 150: uart_tx(0x1a);
+  1092  07EC  301A               	movlw	(01Ah)
+  1093  07ED  120A  118A  2599   	fcall	_uart_tx
+              120A  118A         
+  1094                           	line	151
+  1095                           	
+  1096  07F2                     l2136:	
+  1097                           ;project.c: 151: _delay((unsigned long)((1000)*(20000000/4000.0)));
+  1098                           	opt asmopt_off
+  1099  07F2  301A               movlw  26
+  1100  07F3  00F9               movwf	((??_sensor+0)+0+2),f
+  1101  07F4  3045               movlw	69
+  1102  07F5  00F8               movwf	((??_sensor+0)+0+1),f
+  1103  07F6  307E               	movlw	126
+  1104  07F7  00F7               movwf	((??_sensor+0)+0),f
+  1105  07F8                     u2387:
+  1106  07F8  0BF7               	decfsz	((??_sensor+0)+0),f
+  1107  07F9  2FF8               	goto	u2387
+  1108  07FA  0BF8               	decfsz	((??_sensor+0)+0+1),f
+  1109  07FB  2FF8               	goto	u2387
+  1110  07FC  0BF9               	decfsz	((??_sensor+0)+0+2),f
+  1111  07FD  2FF8               	goto	u2387
+  1112                           opt asmopt_on
+  1113                           
+  1114  07FE  2FFF               	goto	l743
+  1115                           	line	152
+  1116                           	
+  1117  07FF                     l742:	
+  1118                           	line	153
+  1119                           	
+  1120  07FF                     l743:	
+  1121  07FF  0008               	return
+  1122                           	opt stack 0
+  1123                           GLOBAL	__end_of_sensor
+  1124  0800                     	__end_of_sensor:
+  1125 ;; =============== function _sensor ends ============
+  1126                           
+  1127                           	signat	_sensor,88
+  1128                           	global	_lcd_print
+  1129                           psect	text248,local,class=CODE,delta=2
+  1130                           global __ptext248
+  1131  0657                     __ptext248:
+  1132                           
+  1133 ;; *************** function _lcd_print *****************
+  1134 ;; Defined at:
+  1135 ;;		line 102 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1136 ;; Parameters:    Size  Location     Type
+  1137 ;;  str             1    wreg     PTR unsigned char 
+  1138 ;;		 -> STR_3(17), STR_2(17), STR_1(16), 
+  1139 ;; Auto vars:     Size  Location     Type
+  1140 ;;  str             1    6[COMMON] PTR unsigned char 
+  1141 ;;		 -> STR_3(17), STR_2(17), STR_1(16), 
+  1142 ;; Return value:  Size  Location     Type
+  1143 ;;		None               void
+  1144 ;; Registers used:
+  1145 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1146 ;; Tracked objects:
+  1147 ;;		On entry : 0/0
+  1148 ;;		On exit  : 0/0
+  1149 ;;		Unchanged: 0/0
+  1150 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1151 ;;      Params:         0       0       0       0       0
+  1152 ;;      Locals:         1       0       0       0       0
+  1153 ;;      Temps:          3       0       0       0       0
+  1154 ;;      Totals:         4       0       0       0       0
+  1155 ;;Total ram usage:        4 bytes
+  1156 ;; Hardware stack levels used:    1
+  1157 ;; Hardware stack levels required when called:    1
+  1158 ;; This function calls:
+  1159 ;;		_lcd_data
+  1160 ;; This function is called by:
+  1161 ;;		_sensor
+  1162 ;; This function uses a non-reentrant model
+  1163 ;;
+  1164                           psect	text248
+  1165                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1166                           	line	102
+  1167                           	global	__size_of_lcd_print
+  1168  002E                     	__size_of_lcd_print	equ	__end_of_lcd_print-_lcd_print
+  1169                           	
+  1170  0657                     _lcd_print:	
+  1171                           	opt	stack 5
+  1172                           ; Regs used in _lcd_print: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1173                           ;lcd_print@str stored from wreg
+  1174  0657  00F6               	movwf	(lcd_print@str)
+  1175                           	line	103
+  1176                           	
+  1177  0658                     l2070:	
+  1178                           ;project.c: 103: while(*str)
+  1179  0658  2E77               	goto	l2078
+  1180                           	
+  1181  0659                     l735:	
+  1182                           	line	105
+  1183                           	
+  1184  0659                     l2072:	
+  1185                           ;project.c: 104: {
+  1186                           ;project.c: 105: lcd_data(*str++);
+  1187  0659  0876               	movf	(lcd_print@str),w
+  1188  065A  0084               	movwf	fsr0
+  1189  065B  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+  1190  0660  120A  118A  25F4   	fcall	_lcd_data
+              120A  118A         
+  1191                           	
+  1192  0665                     l2074:	
+  1193  0665  3001               	movlw	(01h)
+  1194  0666  00F3               	movwf	(??_lcd_print+0)+0
+  1195  0667  0873               	movf	(??_lcd_print+0)+0,w
+  1196  0668  07F6               	addwf	(lcd_print@str),f
+  1197                           	line	106
+  1198                           	
+  1199  0669                     l2076:	
+  1200                           ;project.c: 106: _delay((unsigned long)((50)*(20000000/4000.0)));
+  1201                           	opt asmopt_off
+  1202  0669  3002               movlw  2
+  1203  066A  00F5               movwf	((??_lcd_print+0)+0+2),f
+  1204  066B  3044               movlw	68
+  1205  066C  00F4               movwf	((??_lcd_print+0)+0+1),f
+  1206  066D  30A9               	movlw	169
+  1207  066E  00F3               movwf	((??_lcd_print+0)+0),f
+  1208  066F                     u2397:
+  1209  066F  0BF3               	decfsz	((??_lcd_print+0)+0),f
+  1210  0670  2E6F               	goto	u2397
+  1211  0671  0BF4               	decfsz	((??_lcd_print+0)+0+1),f
+  1212  0672  2E6F               	goto	u2397
+  1213  0673  0BF5               	decfsz	((??_lcd_print+0)+0+2),f
+  1214  0674  2E6F               	goto	u2397
+  1215  0675  0064               	clrwdt
+  1216                           opt asmopt_on
+  1217                           
+  1218  0676  2E77               	goto	l2078
+  1219                           	line	107
+  1220                           	
+  1221  0677                     l734:	
+  1222                           	line	103
+  1223                           	
+  1224  0677                     l2078:	
+  1225  0677  0876               	movf	(lcd_print@str),w
+  1226  0678  0084               	movwf	fsr0
+  1227  0679  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+  1228  067E  3800               	iorlw	0
+  1229  067F  1D03               	skipz
+  1230  0680  2E82               	goto	u2241
+  1231  0681  2E83               	goto	u2240
+  1232  0682                     u2241:
+  1233  0682  2E59               	goto	l2072
+  1234  0683                     u2240:
+  1235  0683  2E84               	goto	l737
+  1236                           	
+  1237  0684                     l736:	
+  1238                           	line	108
+  1239                           	
+  1240  0684                     l737:	
+  1241  0684  0008               	return
+  1242                           	opt stack 0
+  1243                           GLOBAL	__end_of_lcd_print
+  1244  0685                     	__end_of_lcd_print:
+  1245 ;; =============== function _lcd_print ends ============
+  1246                           
+  1247                           	signat	_lcd_print,4216
+  1248                           	global	_lcd_init
+  1249                           psect	text249,local,class=CODE,delta=2
+  1250                           global __ptext249
+  1251  0685                     __ptext249:
+  1252                           
+  1253 ;; *************** function _lcd_init *****************
+  1254 ;; Defined at:
+  1255 ;;		line 86 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1256 ;; Parameters:    Size  Location     Type
+  1257 ;;		None
+  1258 ;; Auto vars:     Size  Location     Type
+  1259 ;;		None
+  1260 ;; Return value:  Size  Location     Type
+  1261 ;;		None               void
+  1262 ;; Registers used:
+  1263 ;;		wreg, status,2, status,0, pclath, cstack
+  1264 ;; Tracked objects:
+  1265 ;;		On entry : 0/0
+  1266 ;;		On exit  : 0/0
+  1267 ;;		Unchanged: 0/0
+  1268 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1269 ;;      Params:         0       0       0       0       0
+  1270 ;;      Locals:         0       0       0       0       0
+  1271 ;;      Temps:          0       0       0       0       0
+  1272 ;;      Totals:         0       0       0       0       0
+  1273 ;;Total ram usage:        0 bytes
+  1274 ;; Hardware stack levels used:    1
+  1275 ;; Hardware stack levels required when called:    1
+  1276 ;; This function calls:
+  1277 ;;		_lcd_cmd
+  1278 ;; This function is called by:
+  1279 ;;		_main
+  1280 ;; This function uses a non-reentrant model
+  1281 ;;
+  1282                           psect	text249
+  1283                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1284                           	line	86
+  1285                           	global	__size_of_lcd_init
+  1286  0031                     	__size_of_lcd_init	equ	__end_of_lcd_init-_lcd_init
+  1287                           	
+  1288  0685                     _lcd_init:	
+  1289                           	opt	stack 6
+  1290                           ; Regs used in _lcd_init: [wreg+status,2+status,0+pclath+cstack]
+  1291                           	line	87
+  1292                           	
+  1293  0685                     l2048:	
+  1294                           ;project.c: 87: TRISB=0;
+  1295  0685  1683               	bsf	status, 5	;RP0=1, select bank1
+  1296  0686  1303               	bcf	status, 6	;RP1=0, select bank1
+  1297  0687  0186               	clrf	(134)^080h	;volatile
+  1298                           	line	88
+  1299                           	
+  1300  0688                     l2050:	
+  1301                           ;project.c: 88: TRISC0=0;
+  1302  0688  1007               	bcf	(1080/8)^080h,(1080)&7
+  1303                           	line	89
+  1304                           	
+  1305  0689                     l2052:	
+  1306                           ;project.c: 89: TRISC1=0;
+  1307  0689  1087               	bcf	(1081/8)^080h,(1081)&7
+  1308                           	line	90
+  1309                           	
+  1310  068A                     l2054:	
+  1311                           ;project.c: 90: TRISC2=0;
+  1312  068A  1107               	bcf	(1082/8)^080h,(1082)&7
+  1313                           	line	91
+  1314                           	
+  1315  068B                     l2056:	
+  1316                           ;project.c: 91: lcd_cmd(0x01);
+  1317  068B  3001               	movlw	(01h)
+  1318  068C  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+  1319                           	line	92
+  1320                           	
+  1321  0691                     l2058:	
+  1322                           ;project.c: 92: lcd_cmd(0x02);
+  1323  0691  3002               	movlw	(02h)
+  1324  0692  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+  1325                           	line	93
+  1326                           	
+  1327  0697                     l2060:	
+  1328                           ;project.c: 93: lcd_cmd(0x38);
+  1329  0697  3038               	movlw	(038h)
+  1330  0698  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+  1331                           	line	94
+  1332                           	
+  1333  069D                     l2062:	
+  1334                           ;project.c: 94: lcd_cmd(0x0f);
+  1335  069D  300F               	movlw	(0Fh)
+  1336  069E  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+  1337                           	line	95
+  1338                           	
+  1339  06A3                     l2064:	
+  1340                           ;project.c: 95: lcd_cmd(0x0c);
+  1341  06A3  300C               	movlw	(0Ch)
+  1342  06A4  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+  1343                           	line	96
+  1344                           	
+  1345  06A9                     l2066:	
+  1346                           ;project.c: 96: lcd_cmd(0x06);
+  1347  06A9  3006               	movlw	(06h)
+  1348  06AA  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+  1349                           	line	97
+  1350                           	
+  1351  06AF                     l2068:	
+  1352                           ;project.c: 97: lcd_cmd(0x80);
+  1353  06AF  3080               	movlw	(080h)
+  1354  06B0  120A  118A  25DF   	fcall	_lcd_cmd
+              120A  118A         
+  1355                           	line	98
+  1356                           	
+  1357  06B5                     l731:	
+  1358  06B5  0008               	return
+  1359                           	opt stack 0
+  1360                           GLOBAL	__end_of_lcd_init
+  1361  06B6                     	__end_of_lcd_init:
+  1362 ;; =============== function _lcd_init ends ============
+  1363                           
+  1364                           	signat	_lcd_init,88
+  1365                           	global	_lcd_data
+  1366                           psect	text250,local,class=CODE,delta=2
+  1367                           global __ptext250
+  1368  05F4                     __ptext250:
+  1369                           
+  1370 ;; *************** function _lcd_data *****************
+  1371 ;; Defined at:
+  1372 ;;		line 76 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1373 ;; Parameters:    Size  Location     Type
+  1374 ;;  data            1    wreg     unsigned char 
+  1375 ;; Auto vars:     Size  Location     Type
+  1376 ;;  data            1    2[COMMON] unsigned char 
+  1377 ;; Return value:  Size  Location     Type
+  1378 ;;		None               void
+  1379 ;; Registers used:
+  1380 ;;		wreg
+  1381 ;; Tracked objects:
+  1382 ;;		On entry : 0/0
+  1383 ;;		On exit  : 0/0
+  1384 ;;		Unchanged: 0/0
+  1385 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1386 ;;      Params:         0       0       0       0       0
+  1387 ;;      Locals:         1       0       0       0       0
+  1388 ;;      Temps:          2       0       0       0       0
+  1389 ;;      Totals:         3       0       0       0       0
+  1390 ;;Total ram usage:        3 bytes
+  1391 ;; Hardware stack levels used:    1
+  1392 ;; This function calls:
+  1393 ;;		Nothing
+  1394 ;; This function is called by:
+  1395 ;;		_lcd_print
+  1396 ;; This function uses a non-reentrant model
+  1397 ;;
+  1398                           psect	text250
+  1399                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1400                           	line	76
+  1401                           	global	__size_of_lcd_data
+  1402  0015                     	__size_of_lcd_data	equ	__end_of_lcd_data-_lcd_data
+  1403                           	
+  1404  05F4                     _lcd_data:	
+  1405                           	opt	stack 5
+  1406                           ; Regs used in _lcd_data: [wreg]
+  1407                           ;lcd_data@data stored from wreg
+  1408  05F4  00F2               	movwf	(lcd_data@data)
+  1409                           	line	77
+  1410                           	
+  1411  05F5                     l2042:	
+  1412                           ;project.c: 77: RC0 = 1;
+  1413  05F5  1283               	bcf	status, 5	;RP0=0, select bank0
+  1414  05F6  1303               	bcf	status, 6	;RP1=0, select bank0
+  1415  05F7  1407               	bsf	(56/8),(56)&7
+  1416                           	line	78
+  1417                           ;project.c: 78: RC1 = 0;
+  1418  05F8  1087               	bcf	(57/8),(57)&7
+  1419                           	line	79
+  1420                           ;project.c: 79: RC2 = 1;
+  1421  05F9  1507               	bsf	(58/8),(58)&7
+  1422                           	line	80
+  1423                           	
+  1424  05FA                     l2044:	
+  1425                           ;project.c: 80: PORTB=data;
+  1426  05FA  0872               	movf	(lcd_data@data),w
+  1427  05FB  0086               	movwf	(6)	;volatile
+  1428                           	line	81
+  1429                           ;project.c: 81: _delay((unsigned long)((10)*(20000000/4000.0)));
+  1430                           	opt asmopt_off
+  1431  05FC  3041               movlw	65
+  1432  05FD  00F1               movwf	((??_lcd_data+0)+0+1),f
+  1433  05FE  30EE               	movlw	238
+  1434  05FF  00F0               movwf	((??_lcd_data+0)+0),f
+  1435  0600                     u2407:
+  1436  0600  0BF0               	decfsz	((??_lcd_data+0)+0),f
+  1437  0601  2E00               	goto	u2407
+  1438  0602  0BF1               	decfsz	((??_lcd_data+0)+0+1),f
+  1439  0603  2E00               	goto	u2407
+  1440  0604  0064               	clrwdt
+  1441                           opt asmopt_on
+  1442                           
+  1443                           	line	82
+  1444                           	
+  1445  0605                     l2046:	
+  1446                           ;project.c: 82: RC2 = 0;
+  1447  0605  1283               	bcf	status, 5	;RP0=0, select bank0
+  1448  0606  1303               	bcf	status, 6	;RP1=0, select bank0
+  1449  0607  1107               	bcf	(58/8),(58)&7
+  1450                           	line	83
+  1451                           	
+  1452  0608                     l728:	
+  1453  0608  0008               	return
+  1454                           	opt stack 0
+  1455                           GLOBAL	__end_of_lcd_data
+  1456  0609                     	__end_of_lcd_data:
+  1457 ;; =============== function _lcd_data ends ============
+  1458                           
+  1459                           	signat	_lcd_data,4216
+  1460                           	global	_lcd_cmd
+  1461                           psect	text251,local,class=CODE,delta=2
+  1462                           global __ptext251
+  1463  05DF                     __ptext251:
+  1464                           
+  1465 ;; *************** function _lcd_cmd *****************
+  1466 ;; Defined at:
+  1467 ;;		line 66 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1468 ;; Parameters:    Size  Location     Type
+  1469 ;;  cmd             1    wreg     unsigned char 
+  1470 ;; Auto vars:     Size  Location     Type
+  1471 ;;  cmd             1    2[COMMON] unsigned char 
+  1472 ;; Return value:  Size  Location     Type
+  1473 ;;		None               void
+  1474 ;; Registers used:
+  1475 ;;		wreg
+  1476 ;; Tracked objects:
+  1477 ;;		On entry : 0/0
+  1478 ;;		On exit  : 0/0
+  1479 ;;		Unchanged: 0/0
+  1480 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1481 ;;      Params:         0       0       0       0       0
+  1482 ;;      Locals:         1       0       0       0       0
+  1483 ;;      Temps:          2       0       0       0       0
+  1484 ;;      Totals:         3       0       0       0       0
+  1485 ;;Total ram usage:        3 bytes
+  1486 ;; Hardware stack levels used:    1
+  1487 ;; This function calls:
+  1488 ;;		Nothing
+  1489 ;; This function is called by:
+  1490 ;;		_lcd_init
+  1491 ;;		_sensor
+  1492 ;; This function uses a non-reentrant model
+  1493 ;;
+  1494                           psect	text251
+  1495                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1496                           	line	66
+  1497                           	global	__size_of_lcd_cmd
+  1498  0015                     	__size_of_lcd_cmd	equ	__end_of_lcd_cmd-_lcd_cmd
+  1499                           	
+  1500  05DF                     _lcd_cmd:	
+  1501                           	opt	stack 6
+  1502                           ; Regs used in _lcd_cmd: [wreg]
+  1503                           ;lcd_cmd@cmd stored from wreg
+  1504  05DF  00F2               	movwf	(lcd_cmd@cmd)
+  1505                           	line	67
+  1506                           	
+  1507  05E0                     l2036:	
+  1508                           ;project.c: 67: RC0 = 0;
+  1509  05E0  1283               	bcf	status, 5	;RP0=0, select bank0
+  1510  05E1  1303               	bcf	status, 6	;RP1=0, select bank0
+  1511  05E2  1007               	bcf	(56/8),(56)&7
+  1512                           	line	68
+  1513                           ;project.c: 68: RC1 = 0;
+  1514  05E3  1087               	bcf	(57/8),(57)&7
+  1515                           	line	69
+  1516                           ;project.c: 69: RC2 = 1;
+  1517  05E4  1507               	bsf	(58/8),(58)&7
+  1518                           	line	70
+  1519                           	
+  1520  05E5                     l2038:	
+  1521                           ;project.c: 70: PORTB=cmd;
+  1522  05E5  0872               	movf	(lcd_cmd@cmd),w
+  1523  05E6  0086               	movwf	(6)	;volatile
+  1524                           	line	71
+  1525                           ;project.c: 71: _delay((unsigned long)((10)*(20000000/4000.0)));
+  1526                           	opt asmopt_off
+  1527  05E7  3041               movlw	65
+  1528  05E8  00F1               movwf	((??_lcd_cmd+0)+0+1),f
+  1529  05E9  30EE               	movlw	238
+  1530  05EA  00F0               movwf	((??_lcd_cmd+0)+0),f
+  1531  05EB                     u2417:
+  1532  05EB  0BF0               	decfsz	((??_lcd_cmd+0)+0),f
+  1533  05EC  2DEB               	goto	u2417
+  1534  05ED  0BF1               	decfsz	((??_lcd_cmd+0)+0+1),f
+  1535  05EE  2DEB               	goto	u2417
+  1536  05EF  0064               	clrwdt
+  1537                           opt asmopt_on
+  1538                           
+  1539                           	line	72
+  1540                           	
+  1541  05F0                     l2040:	
+  1542                           ;project.c: 72: RC2 = 0;
+  1543  05F0  1283               	bcf	status, 5	;RP0=0, select bank0
+  1544  05F1  1303               	bcf	status, 6	;RP1=0, select bank0
+  1545  05F2  1107               	bcf	(58/8),(58)&7
+  1546                           	line	73
+  1547                           	
+  1548  05F3                     l725:	
+  1549  05F3  0008               	return
+  1550                           	opt stack 0
+  1551                           GLOBAL	__end_of_lcd_cmd
+  1552  05F4                     	__end_of_lcd_cmd:
+  1553 ;; =============== function _lcd_cmd ends ============
+  1554                           
+  1555                           	signat	_lcd_cmd,4216
+  1556                           	global	_uart_print
+  1557                           psect	text252,local,class=CODE,delta=2
+  1558                           global __ptext252
+  1559  061E                     __ptext252:
+  1560                           
+  1561 ;; *************** function _uart_print *****************
+  1562 ;; Defined at:
+  1563 ;;		line 33 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1564 ;; Parameters:    Size  Location     Type
+  1565 ;;  s               1    wreg     PTR unsigned char 
+  1566 ;;		 -> no_message(19), phone(17), AT(5), 
+  1567 ;; Auto vars:     Size  Location     Type
+  1568 ;;  s               1    2[COMMON] PTR unsigned char 
+  1569 ;;		 -> no_message(19), phone(17), AT(5), 
+  1570 ;; Return value:  Size  Location     Type
+  1571 ;;		None               void
+  1572 ;; Registers used:
+  1573 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1574 ;; Tracked objects:
+  1575 ;;		On entry : 0/0
+  1576 ;;		On exit  : 0/0
+  1577 ;;		Unchanged: 0/0
+  1578 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1579 ;;      Params:         0       0       0       0       0
+  1580 ;;      Locals:         1       0       0       0       0
+  1581 ;;      Temps:          1       0       0       0       0
+  1582 ;;      Totals:         2       0       0       0       0
+  1583 ;;Total ram usage:        2 bytes
+  1584 ;; Hardware stack levels used:    1
+  1585 ;; Hardware stack levels required when called:    1
+  1586 ;; This function calls:
+  1587 ;;		_uart_tx
+  1588 ;; This function is called by:
+  1589 ;;		_sensor
+  1590 ;; This function uses a non-reentrant model
+  1591 ;;
+  1592                           psect	text252
+  1593                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1594                           	line	33
+  1595                           	global	__size_of_uart_print
+  1596  001A                     	__size_of_uart_print	equ	__end_of_uart_print-_uart_print
+  1597                           	
+  1598  061E                     _uart_print:	
+  1599                           	opt	stack 5
+  1600                           ; Regs used in _uart_print: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1601                           ;uart_print@s stored from wreg
+  1602  061E  00F2               	movwf	(uart_print@s)
+  1603                           	line	34
+  1604                           	
+  1605  061F                     l2028:	
+  1606                           ;project.c: 34: while(*s)
+  1607  061F  2E2E               	goto	l2034
+  1608                           	
+  1609  0620                     l712:	
+  1610                           	line	36
+  1611                           	
+  1612  0620                     l2030:	
+  1613                           ;project.c: 35: {
+  1614                           ;project.c: 36: uart_tx(*s++);
+  1615  0620  0872               	movf	(uart_print@s),w
+  1616  0621  0084               	movwf	fsr0
+  1617  0622  1383               	bcf	status, 7	;select IRP bank0
+  1618  0623  0800               	movf	indf,w
+  1619  0624  120A  118A  2599   	fcall	_uart_tx
+              120A  118A         
+  1620                           	
+  1621  0629                     l2032:	
+  1622  0629  3001               	movlw	(01h)
+  1623  062A  00F1               	movwf	(??_uart_print+0)+0
+  1624  062B  0871               	movf	(??_uart_print+0)+0,w
+  1625  062C  07F2               	addwf	(uart_print@s),f
+  1626  062D  2E2E               	goto	l2034
+  1627                           	line	37
+  1628                           	
+  1629  062E                     l711:	
+  1630                           	line	34
+  1631                           	
+  1632  062E                     l2034:	
+  1633  062E  0872               	movf	(uart_print@s),w
+  1634  062F  0084               	movwf	fsr0
+  1635  0630  1383               	bcf	status, 7	;select IRP bank0
+  1636  0631  0880               	movf	indf,f
+  1637  0632  1D03               	skipz
+  1638  0633  2E35               	goto	u2231
+  1639  0634  2E36               	goto	u2230
+  1640  0635                     u2231:
+  1641  0635  2E20               	goto	l2030
+  1642  0636                     u2230:
+  1643  0636  2E37               	goto	l714
+  1644                           	
+  1645  0637                     l713:	
+  1646                           	line	38
+  1647                           	
+  1648  0637                     l714:	
+  1649  0637  0008               	return
+  1650                           	opt stack 0
+  1651                           GLOBAL	__end_of_uart_print
+  1652  0638                     	__end_of_uart_print:
+  1653 ;; =============== function _uart_print ends ============
+  1654                           
+  1655                           	signat	_uart_print,4216
+  1656                           	global	_uart_init
+  1657                           psect	text253,local,class=CODE,delta=2
+  1658                           global __ptext253
+  1659  05CA                     __ptext253:
+  1660                           
+  1661 ;; *************** function _uart_init *****************
+  1662 ;; Defined at:
+  1663 ;;		line 53 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1664 ;; Parameters:    Size  Location     Type
+  1665 ;;		None
+  1666 ;; Auto vars:     Size  Location     Type
+  1667 ;;		None
+  1668 ;; Return value:  Size  Location     Type
+  1669 ;;		None               void
+  1670 ;; Registers used:
+  1671 ;;		wreg
+  1672 ;; Tracked objects:
+  1673 ;;		On entry : 0/0
+  1674 ;;		On exit  : 0/0
+  1675 ;;		Unchanged: 0/0
+  1676 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1677 ;;      Params:         0       0       0       0       0
+  1678 ;;      Locals:         0       0       0       0       0
+  1679 ;;      Temps:          0       0       0       0       0
+  1680 ;;      Totals:         0       0       0       0       0
+  1681 ;;Total ram usage:        0 bytes
+  1682 ;; Hardware stack levels used:    1
+  1683 ;; This function calls:
+  1684 ;;		Nothing
+  1685 ;; This function is called by:
+  1686 ;;		_main
+  1687 ;; This function uses a non-reentrant model
+  1688 ;;
+  1689                           psect	text253
+  1690                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1691                           	line	53
+  1692                           	global	__size_of_uart_init
+  1693  0015                     	__size_of_uart_init	equ	__end_of_uart_init-_uart_init
+  1694                           	
+  1695  05CA                     _uart_init:	
+  1696                           	opt	stack 7
+  1697                           ; Regs used in _uart_init: [wreg]
+  1698                           	line	54
+  1699                           	
+  1700  05CA                     l1134:	
+  1701                           ;project.c: 54: TRISD1=1;
+  1702  05CA  1683               	bsf	status, 5	;RP0=1, select bank1
+  1703  05CB  1303               	bcf	status, 6	;RP1=0, select bank1
+  1704  05CC  1488               	bsf	(1089/8)^080h,(1089)&7
+  1705                           	line	55
+  1706                           ;project.c: 55: TRISD0=0;
+  1707  05CD  1008               	bcf	(1088/8)^080h,(1088)&7
+  1708                           	line	56
+  1709                           ;project.c: 56: TRISC6=0;
+  1710  05CE  1307               	bcf	(1086/8)^080h,(1086)&7
+  1711                           	line	57
+  1712                           ;project.c: 57: TRISC7=1;
+  1713  05CF  1787               	bsf	(1087/8)^080h,(1087)&7
+  1714                           	line	58
+  1715                           	
+  1716  05D0                     l1136:	
+  1717                           ;project.c: 58: TXSTA=0X20;
+  1718  05D0  3020               	movlw	(020h)
+  1719  05D1  0098               	movwf	(152)^080h	;volatile
+  1720                           	line	59
+  1721                           ;project.c: 59: RCSTA=0X90;
+  1722  05D2  3090               	movlw	(090h)
+  1723  05D3  1283               	bcf	status, 5	;RP0=0, select bank0
+  1724  05D4  1303               	bcf	status, 6	;RP1=0, select bank0
+  1725  05D5  0098               	movwf	(24)	;volatile
+  1726                           	line	60
+  1727                           ;project.c: 60: SPBRG=31;
+  1728  05D6  301F               	movlw	(01Fh)
+  1729  05D7  1683               	bsf	status, 5	;RP0=1, select bank1
+  1730  05D8  1303               	bcf	status, 6	;RP1=0, select bank1
+  1731  05D9  0099               	movwf	(153)^080h	;volatile
+  1732                           	line	61
+  1733                           	
+  1734  05DA                     l1138:	
+  1735                           ;project.c: 61: TXIF=0;
+  1736  05DA  1283               	bcf	status, 5	;RP0=0, select bank0
+  1737  05DB  1303               	bcf	status, 6	;RP1=0, select bank0
+  1738  05DC  120C               	bcf	(100/8),(100)&7
+  1739                           	line	62
+  1740                           	
+  1741  05DD                     l1140:	
+  1742                           ;project.c: 62: RCIF=0;
+  1743  05DD  128C               	bcf	(101/8),(101)&7
+  1744                           	line	63
+  1745                           	
+  1746  05DE                     l722:	
+  1747  05DE  0008               	return
+  1748                           	opt stack 0
+  1749                           GLOBAL	__end_of_uart_init
+  1750  05DF                     	__end_of_uart_init:
+  1751 ;; =============== function _uart_init ends ============
+  1752                           
+  1753                           	signat	_uart_init,88
+  1754                           	global	_led
+  1755                           psect	text254,local,class=CODE,delta=2
+  1756                           global __ptext254
+  1757  058E                     __ptext254:
+  1758                           
+  1759 ;; *************** function _led *****************
+  1760 ;; Defined at:
+  1761 ;;		line 41 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1762 ;; Parameters:    Size  Location     Type
+  1763 ;;		None
+  1764 ;; Auto vars:     Size  Location     Type
+  1765 ;;		None
+  1766 ;; Return value:  Size  Location     Type
+  1767 ;;		None               void
+  1768 ;; Registers used:
+  1769 ;;		None
+  1770 ;; Tracked objects:
+  1771 ;;		On entry : 0/0
+  1772 ;;		On exit  : 0/0
+  1773 ;;		Unchanged: 0/0
+  1774 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1775 ;;      Params:         0       0       0       0       0
+  1776 ;;      Locals:         0       0       0       0       0
+  1777 ;;      Temps:          0       0       0       0       0
+  1778 ;;      Totals:         0       0       0       0       0
+  1779 ;;Total ram usage:        0 bytes
+  1780 ;; Hardware stack levels used:    1
+  1781 ;; This function calls:
+  1782 ;;		Nothing
+  1783 ;; This function is called by:
+  1784 ;;		_sensor
+  1785 ;; This function uses a non-reentrant model
+  1786 ;;
+  1787                           psect	text254
+  1788                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1789                           	line	41
+  1790                           	global	__size_of_led
+  1791  000B                     	__size_of_led	equ	__end_of_led-_led
+  1792                           	
+  1793  058E                     _led:	
+  1794                           	opt	stack 6
+  1795                           ; Regs used in _led: []
+  1796                           	line	42
+  1797                           	
+  1798  058E                     l2024:	
+  1799                           ;project.c: 42: if(RD1==1)
+  1800  058E  1283               	bcf	status, 5	;RP0=0, select bank0
+  1801  058F  1303               	bcf	status, 6	;RP1=0, select bank0
+  1802  0590  1C88               	btfss	(65/8),(65)&7
+  1803  0591  2D93               	goto	u2221
+  1804  0592  2D94               	goto	u2220
+  1805  0593                     u2221:
+  1806  0593  2D96               	goto	l717
+  1807  0594                     u2220:
+  1808                           	line	44
+  1809                           	
+  1810  0594                     l2026:	
+  1811                           ;project.c: 43: {
+  1812                           ;project.c: 44: RD0=1;
+  1813  0594  1408               	bsf	(64/8),(64)&7
+  1814                           	line	45
+  1815                           ;project.c: 45: }
+  1816  0595  2D98               	goto	l719
+  1817                           	line	46
+  1818                           	
+  1819  0596                     l717:	
+  1820                           	line	48
+  1821                           ;project.c: 46: else
+  1822                           ;project.c: 47: {
+  1823                           ;project.c: 48: RD0=0;
+  1824  0596  1008               	bcf	(64/8),(64)&7
+  1825  0597  2D98               	goto	l719
+  1826                           	line	49
+  1827                           	
+  1828  0598                     l718:	
+  1829                           	line	50
+  1830                           	
+  1831  0598                     l719:	
+  1832  0598  0008               	return
+  1833                           	opt stack 0
+  1834                           GLOBAL	__end_of_led
+  1835  0599                     	__end_of_led:
+  1836 ;; =============== function _led ends ============
+  1837                           
+  1838                           	signat	_led,88
+  1839                           	global	_uart_tx
+  1840                           psect	text255,local,class=CODE,delta=2
+  1841                           global __ptext255
+  1842  0599                     __ptext255:
+  1843                           
+  1844 ;; *************** function _uart_tx *****************
+  1845 ;; Defined at:
+  1846 ;;		line 19 in file "C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1847 ;; Parameters:    Size  Location     Type
+  1848 ;;  data            1    wreg     unsigned char 
+  1849 ;; Auto vars:     Size  Location     Type
+  1850 ;;  data            1    0[COMMON] unsigned char 
+  1851 ;; Return value:  Size  Location     Type
+  1852 ;;		None               void
+  1853 ;; Registers used:
+  1854 ;;		wreg
+  1855 ;; Tracked objects:
+  1856 ;;		On entry : 0/0
+  1857 ;;		On exit  : 0/0
+  1858 ;;		Unchanged: 0/0
+  1859 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1860 ;;      Params:         0       0       0       0       0
+  1861 ;;      Locals:         1       0       0       0       0
+  1862 ;;      Temps:          0       0       0       0       0
+  1863 ;;      Totals:         1       0       0       0       0
+  1864 ;;Total ram usage:        1 bytes
+  1865 ;; Hardware stack levels used:    1
+  1866 ;; This function calls:
+  1867 ;;		Nothing
+  1868 ;; This function is called by:
+  1869 ;;		_uart_print
+  1870 ;;		_sensor
+  1871 ;; This function uses a non-reentrant model
+  1872 ;;
+  1873                           psect	text255
+  1874                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\project\project.c"
+  1875                           	line	19
+  1876                           	global	__size_of_uart_tx
+  1877  000C                     	__size_of_uart_tx	equ	__end_of_uart_tx-_uart_tx
+  1878                           	
+  1879  0599                     _uart_tx:	
+  1880                           	opt	stack 6
+  1881                           ; Regs used in _uart_tx: [wreg]
+  1882                           ;uart_tx@data stored from wreg
+  1883  0599  00F0               	movwf	(uart_tx@data)
+  1884                           	line	20
+  1885                           	
+  1886  059A                     l2022:	
+  1887                           ;project.c: 20: TXREG=data;
+  1888  059A  0870               	movf	(uart_tx@data),w
+  1889  059B  1283               	bcf	status, 5	;RP0=0, select bank0
+  1890  059C  1303               	bcf	status, 6	;RP1=0, select bank0
+  1891  059D  0099               	movwf	(25)	;volatile
+  1892                           	line	21
+  1893                           ;project.c: 21: while(!TXIF);
+  1894  059E  2D9F               	goto	l699
+  1895                           	
+  1896  059F                     l700:	
+  1897                           	
+  1898  059F                     l699:	
+  1899  059F  1E0C               	btfss	(100/8),(100)&7
+  1900  05A0  2DA2               	goto	u2211
+  1901  05A1  2DA3               	goto	u2210
+  1902  05A2                     u2211:
+  1903  05A2  2D9F               	goto	l699
+  1904  05A3                     u2210:
+  1905                           	
+  1906  05A3                     l701:	
+  1907                           	line	22
+  1908                           ;project.c: 22: TXIF=0;
+  1909  05A3  120C               	bcf	(100/8),(100)&7
+  1910                           	line	23
+  1911                           	
+  1912  05A4                     l702:	
+  1913  05A4  0008               	return
+  1914                           	opt stack 0
+  1915                           GLOBAL	__end_of_uart_tx
+  1916  05A5                     	__end_of_uart_tx:
+  1917 ;; =============== function _uart_tx ends ============
+  1918                           
+  1919                           	signat	_uart_tx,4216
+  1920                           psect	text256,local,class=CODE,delta=2
+  1921                           global __ptext256
+  1922  0000                     __ptext256:
+  1923                           	global	btemp
+  1924  007E                     	btemp set 07Eh
+  1925                           
+  1926                           	DABS	1,126,2	;btemp
+  1927                           	global	wtemp0
+  1928  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Thu Aug 04 13:26:32 2022
+
+                   pc 0002          lcd_data@data 0072                    _AT 0061                    fsr 0004  
+                 l700 059F                   l701 05A3                   l702 05A4                   l711 062E  
+                 l712 0620                   l713 0637                   l722 05DE                   l714 0637  
+                 l731 06B5                   l740 07E1                   l717 0596                   l725 05F3  
+                 l741 07E0                   l718 0598                   l734 0677                   l742 07FF  
+                 l719 0598                   l735 0659                   l743 07FF                   l728 0608  
+                 l736 0684                   l737 0684                   l746 0614                   l747 061A  
+                 l748 061B                   l749 061B                   l699 059F                   _RC0 0038  
+                 _RC1 0039                   _RD0 0040                   _RC2 003A                   _RD1 0041  
+                 _led 058E                   fsr0 0004                   indf 0000                  l1140 05DD  
+                l2100 0739                  l2022 059A                  l1134 05CA                  l2030 0620  
+                l2110 0764                  l2102 0746                  l2024 058E                  l1136 05D0  
+                l2032 0629                  l2040 05F0                  l2120 07A5                  l2112 0771  
+                l2104 074C                  l2026 0594                  l1138 05DA                  l2034 062E  
+                l2042 05F5                  l2050 0688                  l2122 07B2                  l2114 077E  
+                l2106 0758                  l2130 07E1                  l2028 061F                  l2036 05E0  
+                l2044 05FA                  l2060 0697                  l2052 0689                  l2132 07E6  
+                l2124 07BF                  l2116 078B                  l2108 075E                  l2140 0614  
+                l2038 05E5                  l2046 0605                  l2062 069D                  l2054 068A  
+                l2070 0658                  l2134 07EC                  l2126 07CC                  l2118 0798  
+                l2064 06A3                  l2056 068B                  l2048 0685                  l2072 0659  
+                l2136 07F2                  l2128 07D9                  l2080 06FC                  l2066 06A9  
+                l2058 0691                  l2074 0665                  l2090 0715                  l2082 06FE  
+                l2138 0609                  l2068 06AF                  l2076 0669                  l2092 0721  
+                l2084 0704                  l2078 0677                  l2094 0727                  l2086 0709  
+                l2096 072D                  l2088 070F                  l2098 0733                  ?_led 0070  
+                STR_1 002B                  STR_2 001A                  STR_3 0009                  u2210 05A3  
+                u2211 05A2                  u2220 0594                  u2221 0593                  u2230 0636  
+                u2231 0635                  u2240 0683                  u2241 0682                  u2250 0704  
+                u2307 0777                  u2251 0703                  u2260 070F                  u2317 0784  
+                u2261 070E                  u2407 0600                  u2327 0791                  u2417 05EB  
+                u2337 079E                  u2347 07AB                  u2357 07B8                  u2277 071B  
+                u2367 07C5                  u2287 073F                  u2377 07D2                  u2297 076A  
+                u2387 07F8                  u2397 066F                  _RCIF 0065                  _TXIF 0064  
+                _main 0609                  btemp 007E                  start 0000                 ??_led 0070  
+               ?_main 0070                 _RCREG 001A                 _RCSTA 0018                 _SPBRG 0099  
+               _PORTB 0006                 _TRISB 0086                 _TXREG 0019                 _TXSTA 0098  
+        lcd_print@str 0076       __end_of_lcd_cmd 05F4                 _phone 0050                 pclath 000A  
+     __end_of_uart_tx 05A5                 status 0003                 wtemp0 007E          __end_of_main 061E  
+              ??_main 007C                _TRISC0 0438                _TRISC1 0439                _TRISD0 0440  
+              _TRISC2 043A                _TRISD1 0441                _TRISC6 043E                _TRISC7 043F  
+    __end_of_lcd_data 0609      __end_of_lcd_init 06B6                _sensor 06FC             ??_lcd_cmd 0070  
+           ??_uart_tx 0070        __pcstackCOMMON 0070          __pidataBANK0 06B6          __pidataBANK1 05B6  
+  __size_of_lcd_print 002E            __pmaintext 0609               ?_sensor 0070    __size_of_uart_init 0015  
+           ?_lcd_data 0070             ?_lcd_init 0070     __end_of_lcd_print 0685       __size_of_sensor 0104  
+             _lcd_cmd 05DF          __size_of_led 000B               _set_sms 0031               _uart_tx 0599  
+          _no_message 003D            ??_lcd_data 0070            ??_lcd_init 0073  end_of_initialization 0653  
+             init_ram 05A9     __end_of_uart_init 05DF               sensor@k 007A            _uart_print 061E  
+         uart_tx@data 0070           uart_print@s 0072            lcd_cmd@cmd 0072        __end_of_sensor 0800  
+ start_initialization 0638           __end_of_led 0599           __pdataBANK0 0020           __pdataBANK1 00A0  
+         ?_uart_print 0070              ??_sensor 0077     __size_of_lcd_data 0015     __size_of_lcd_init 0031  
+           __ptext250 05F4             __ptext251 05DF             __ptext252 061E             __ptext253 05CA  
+           __ptext254 058E             __ptext255 0599             __ptext247 06FC             __ptext256 0000  
+           __ptext248 0657             __ptext249 0685             __pstrings 0003             _lcd_print 0657  
+            ?_lcd_cmd 0070              ?_uart_tx 0070             _mobile_no 00A0   __size_of_uart_print 001A  
+           _uart_init 05CA            ?_lcd_print 0070           __stringbase 0008             init_fetch 05A5  
+          ?_uart_init 0070          _send_message 0020      __size_of_lcd_cmd 0015              _lcd_data 05F4  
+    __size_of_uart_tx 000C              _lcd_init 0685         __size_of_main 0015          ??_uart_print 0071  
+         ??_lcd_print 0073    __end_of_uart_print 0638             stringcode 0003           ??_uart_init 0070  
+            stringdir 0003              stringtab 0003  
