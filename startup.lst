@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC Macro Assembler V9.81 build 7503 
-                                                                                                           Thu Aug 04 13:26:32 2022
+                                                                                                           Tue Aug 02 18:32:40 2022
 
 
      1                           
@@ -13,9 +13,9 @@ HI-TECH Software PIC Macro Assembler V9.81 build 7503
      7                           	;
      8                           	; Compiler options:
      9                           	;
-    10                           	; -ogsmproject.cof -mgsmproject.map --summary=default --output=default \
-    11                           	; project.p1 --chip=16F877A -P --runtime=default --opt=default \
-    12                           	; -D__DEBUG=1 -g --asmlist --errformat=Error   [%n] %f; %l.%c %s \
+    10                           	; -ogsm.cof -mgsm.map --summary=default --output=default message.p1 \
+    11                           	; --chip=16F877A -P --runtime=default --opt=default -D__DEBUG=1 -g \
+    12                           	; --asmlist --errformat=Error   [%n] %f; %l.%c %s \
     13                           	; --msgformat=Advisory[%n] %s --warnformat=Warning [%n] %f; %l.%c %s
     14                           	;
     15                           
@@ -67,12 +67,12 @@ HI-TECH Software PIC Macro Assembler V9.81 build 7503
     61  0000                     _exit
     62                           	psect	end_init
     63                           	global start_initialization
-    64  0000  120A  118A  2E38   	ljmp start_initialization	;jump to C runtime clear & initialization
+    64  0000  120A  118A  2E81   	ljmp start_initialization	;jump to C runtime clear & initialization
 
 
 HI-TECH Software PICC Macro Assembler V9.81 build 7503 
-Symbol Table                                                                                               Thu Aug 04 13:26:32 2022
+Symbol Table                                                                                               Tue Aug 02 18:32:40 2022
 
-               _main 0609                 _exit 0000                 start 0000  start_initialization 0638  
+               _main 0631                 _exit 0000                 start 0000  start_initialization 0681  
            intlevel0 0000             intlevel1 0000             intlevel2 0000             intlevel3 0000  
            intlevel4 0000             intlevel5 0000             reset_vec 0000  

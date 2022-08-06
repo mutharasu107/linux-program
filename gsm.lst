@@ -1,0 +1,1437 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Tue Aug 02 18:32:40 2022
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 3 "C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 3 "C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+    45  2007  1F7A               	dw 0x1F7A ;#
+    46                           	FNCALL	_main,_uart_init
+    47                           	FNCALL	_main,_pir_sensor
+    48                           	FNCALL	_pir_sensor,_LED
+    49                           	FNCALL	_pir_sensor,_uart_print
+    50                           	FNCALL	_pir_sensor,_Uart_tx
+    51                           	FNCALL	_uart_print,_Uart_tx
+    52                           	FNROOT	_main
+    53                           	global	_noecho
+    54                           	global	_terminator
+    55                           	global	_atcall
+    56                           	global	_stop
+    57                           	global	_char_mode
+    58                           	global	_mesg
+    59                           	global	_mode_text
+    60                           	global	_AT
+    61                           	global	_mobile_no
+    62                           	global	_param
+    63                           	global	_nomesg
+    64                           	global	_ph
+    65                           psect	idataBANK0,class=CODE,space=0,delta=2
+    66                           global __pidataBANK0
+    67  06B8                     __pidataBANK0:
+    68                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+    69                           	line	13
+    70                           
+    71                           ;initializer for _noecho
+    72  06B8  3441               	retlw	041h
+    73  06B9  3454               	retlw	054h
+    74  06BA  3445               	retlw	045h
+    75  06BB  3430               	retlw	030h
+    76  06BC  340D               	retlw	0Dh
+    77  06BD  340A               	retlw	0Ah
+    78  06BE  3400               	retlw	0
+    79                           	line	18
+    80                           
+    81                           ;initializer for _terminator
+    82  06BF  3443               	retlw	043h
+    83  06C0  3454               	retlw	054h
+    84  06C1  3452               	retlw	052h
+    85  06C2  344C               	retlw	04Ch
+    86  06C3  342B               	retlw	02Bh
+    87  06C4  345A               	retlw	05Ah
+    88  06C5  3400               	retlw	0
+    89                           	line	11
+    90                           
+    91                           ;initializer for _atcall
+    92  06C6  3441               	retlw	041h
+    93  06C7  3454               	retlw	054h
+    94  06C8  3441               	retlw	041h
+    95  06C9  340D               	retlw	0Dh
+    96  06CA  340A               	retlw	0Ah
+    97  06CB  3400               	retlw	0
+    98                           psect	idataCOMMON,class=CODE,space=0,delta=2
+    99                           global __pidataCOMMON
+   100  0616                     __pidataCOMMON:
+   101                           	line	22
+   102                           
+   103                           ;initializer for _stop
+   104  0616  3441               	retlw	041h
+   105  0617  3454               	retlw	054h
+   106  0618  3448               	retlw	048h
+   107  0619  3400               	retlw	0
+   108                           psect	idataBANK0
+   109                           	line	15
+   110                           
+   111                           ;initializer for _char_mode
+   112  06CC  3441               	retlw	041h
+   113  06CD  3454               	retlw	054h
+   114  06CE  342B               	retlw	02Bh
+   115  06CF  3443               	retlw	043h
+   116  06D0  3453               	retlw	053h
+   117  06D1  3443               	retlw	043h
+   118  06D2  3453               	retlw	053h
+   119  06D3  343D               	retlw	03Dh
+   120  06D4  3422               	retlw	022h
+   121  06D5  3447               	retlw	047h
+   122  06D6  3453               	retlw	053h
+   123  06D7  344D               	retlw	04Dh
+   124  06D8  3422               	retlw	022h
+   125  06D9  340D               	retlw	0Dh
+   126  06DA  340A               	retlw	0Ah
+   127  06DB  3400               	retlw	0
+   128                           	line	19
+   129                           
+   130                           ;initializer for _mesg
+   131  06DC  3448               	retlw	048h
+   132  06DD  3475               	retlw	075h
+   133  06DE  346D               	retlw	06Dh
+   134  06DF  3461               	retlw	061h
+   135  06E0  346E               	retlw	06Eh
+   136  06E1  3420               	retlw	020h
+   137  06E2  3444               	retlw	044h
+   138  06E3  3465               	retlw	065h
+   139  06E4  3474               	retlw	074h
+   140  06E5  3465               	retlw	065h
+   141  06E6  3463               	retlw	063h
+   142  06E7  3474               	retlw	074h
+   143  06E8  3465               	retlw	065h
+   144  06E9  3464               	retlw	064h
+   145  06EA  3400               	retlw	0
+   146                           	line	14
+   147                           
+   148                           ;initializer for _mode_text
+   149  06EB  3441               	retlw	041h
+   150  06EC  3454               	retlw	054h
+   151  06ED  342B               	retlw	02Bh
+   152  06EE  3443               	retlw	043h
+   153  06EF  344D               	retlw	04Dh
+   154  06F0  3447               	retlw	047h
+   155  06F1  3446               	retlw	046h
+   156  06F2  343D               	retlw	03Dh
+   157  06F3  3431               	retlw	031h
+   158  06F4  340D               	retlw	0Dh
+   159  06F5  340A               	retlw	0Ah
+   160  06F6  3400               	retlw	0
+   161                           	line	12
+   162                           
+   163                           ;initializer for _AT
+   164  06F7  3441               	retlw	041h
+   165  06F8  3454               	retlw	054h
+   166  06F9  340D               	retlw	0Dh
+   167  06FA  340A               	retlw	0Ah
+   168  06FB  3400               	retlw	0
+   169                           psect	idataBANK1,class=CODE,space=0,delta=2
+   170                           global __pidataBANK1
+   171  06FC                     __pidataBANK1:
+   172                           	line	17
+   173                           
+   174                           ;initializer for _mobile_no
+   175  06FC  3441               	retlw	041h
+   176  06FD  3454               	retlw	054h
+   177  06FE  342B               	retlw	02Bh
+   178  06FF  3443               	retlw	043h
+   179  0700  344D               	retlw	04Dh
+   180  0701  3447               	retlw	047h
+   181  0702  3453               	retlw	053h
+   182  0703  343D               	retlw	03Dh
+   183  0704  3422               	retlw	022h
+   184  0705  3439               	retlw	039h
+   185  0706  3434               	retlw	034h
+   186  0707  3438               	retlw	038h
+   187  0708  3437               	retlw	037h
+   188  0709  3438               	retlw	038h
+   189  070A  3435               	retlw	035h
+   190  070B  3435               	retlw	035h
+   191  070C  3434               	retlw	034h
+   192  070D  3435               	retlw	035h
+   193  070E  3430               	retlw	030h
+   194  070F  3422               	retlw	022h
+   195  0710  340D               	retlw	0Dh
+   196  0711  340A               	retlw	0Ah
+   197  0712  3400               	retlw	0
+   198                           	line	16
+   199                           
+   200                           ;initializer for _param
+   201  0713  3441               	retlw	041h
+   202  0714  3454               	retlw	054h
+   203  0715  342B               	retlw	02Bh
+   204  0716  3443               	retlw	043h
+   205  0717  3453               	retlw	053h
+   206  0718  344D               	retlw	04Dh
+   207  0719  3450               	retlw	050h
+   208  071A  343D               	retlw	03Dh
+   209  071B  3431               	retlw	031h
+   210  071C  3437               	retlw	037h
+   211  071D  342C               	retlw	02Ch
+   212  071E  3431               	retlw	031h
+   213  071F  3436               	retlw	036h
+   214  0720  3437               	retlw	037h
+   215  0721  342C               	retlw	02Ch
+   216  0722  3430               	retlw	030h
+   217  0723  342C               	retlw	02Ch
+   218  0724  3430               	retlw	030h
+   219  0725  340D               	retlw	0Dh
+   220  0726  340A               	retlw	0Ah
+   221  0727  3400               	retlw	0
+   222                           	line	20
+   223                           
+   224                           ;initializer for _nomesg
+   225  0728  3448               	retlw	048h
+   226  0729  3475               	retlw	075h
+   227  072A  346D               	retlw	06Dh
+   228  072B  3461               	retlw	061h
+   229  072C  346E               	retlw	06Eh
+   230  072D  3420               	retlw	020h
+   231  072E  346E               	retlw	06Eh
+   232  072F  346F               	retlw	06Fh
+   233  0730  3474               	retlw	074h
+   234  0731  3420               	retlw	020h
+   235  0732  3444               	retlw	044h
+   236  0733  3465               	retlw	065h
+   237  0734  3474               	retlw	074h
+   238  0735  3465               	retlw	065h
+   239  0736  3463               	retlw	063h
+   240  0737  3474               	retlw	074h
+   241  0738  3465               	retlw	065h
+   242  0739  3464               	retlw	064h
+   243  073A  3400               	retlw	0
+   244                           	line	21
+   245                           
+   246                           ;initializer for _ph
+   247  073B  3441               	retlw	041h
+   248  073C  3454               	retlw	054h
+   249  073D  3444               	retlw	044h
+   250  073E  3439               	retlw	039h
+   251  073F  3434               	retlw	034h
+   252  0740  3438               	retlw	038h
+   253  0741  3437               	retlw	037h
+   254  0742  3438               	retlw	038h
+   255  0743  3435               	retlw	035h
+   256  0744  3435               	retlw	035h
+   257  0745  3434               	retlw	034h
+   258  0746  3435               	retlw	035h
+   259  0747  3430               	retlw	030h
+   260  0748  343B               	retlw	03Bh
+   261  0749  340D               	retlw	0Dh
+   262  074A  340A               	retlw	0Ah
+   263  074B  3400               	retlw	0
+   264                           	global	_RCREG
+   265  001A                     _RCREG	set	26
+   266                           	global	_RCSTA
+   267  0018                     _RCSTA	set	24
+   268                           	global	_TXREG
+   269  0019                     _TXREG	set	25
+   270                           	global	_RCIF
+   271  0065                     _RCIF	set	101
+   272                           	global	_RD0
+   273  0040                     _RD0	set	64
+   274                           	global	_RD1
+   275  0041                     _RD1	set	65
+   276                           	global	_TXIF
+   277  0064                     _TXIF	set	100
+   278                           	global	_SPBRG
+   279  0099                     _SPBRG	set	153
+   280                           	global	_TXSTA
+   281  0098                     _TXSTA	set	152
+   282                           	global	_TRISC6
+   283  043E                     _TRISC6	set	1086
+   284                           	global	_TRISC7
+   285  043F                     _TRISC7	set	1087
+   286                           	global	_TRISD0
+   287  0440                     _TRISD0	set	1088
+   288                           	global	_TRISD1
+   289  0441                     _TRISD1	set	1089
+   290                           	file	"gsm.as"
+   291                           	line	#
+   292                           psect cinit,class=CODE,delta=2
+   293                           global start_initialization
+   294  0681                     start_initialization:
+   295                           
+   296                           psect	dataCOMMON,class=COMMON,space=1
+   297                           global __pdataCOMMON
+   298  0078                     __pdataCOMMON:
+   299                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   300                           	line	22
+   301  0078                     _stop:
+   302  0078                            ds      4
+   303                           
+   304                           psect	dataBANK0,class=BANK0,space=1
+   305                           global __pdataBANK0
+   306  0020                     __pdataBANK0:
+   307                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   308                           	line	13
+   309  0020                     _noecho:
+   310  0020                            ds      7
+   311                           
+   312                           psect	dataBANK0
+   313                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   314                           	line	18
+   315  0027                     _terminator:
+   316  0027                            ds      7
+   317                           
+   318                           psect	dataBANK0
+   319                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   320                           	line	11
+   321  002E                     _atcall:
+   322  002E                            ds      6
+   323                           
+   324                           psect	dataBANK0
+   325                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   326                           	line	15
+   327  0034                     _char_mode:
+   328  0034                            ds      16
+   329                           
+   330                           psect	dataBANK0
+   331                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   332                           	line	19
+   333  0044                     _mesg:
+   334  0044                            ds      15
+   335                           
+   336                           psect	dataBANK0
+   337                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   338                           	line	14
+   339  0053                     _mode_text:
+   340  0053                            ds      12
+   341                           
+   342                           psect	dataBANK0
+   343                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   344                           	line	12
+   345  005F                     _AT:
+   346  005F                            ds      5
+   347                           
+   348                           psect	dataBANK1,class=BANK1,space=1
+   349                           global __pdataBANK1
+   350  00A0                     __pdataBANK1:
+   351                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   352                           	line	17
+   353  00A0                     _mobile_no:
+   354  00A0                            ds      23
+   355                           
+   356                           psect	dataBANK1
+   357                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   358                           	line	16
+   359  00B7                     _param:
+   360  00B7                            ds      21
+   361                           
+   362                           psect	dataBANK1
+   363                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   364                           	line	20
+   365  00CC                     _nomesg:
+   366  00CC                            ds      19
+   367                           
+   368                           psect	dataBANK1
+   369                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   370                           	line	21
+   371  00DF                     _ph:
+   372  00DF                            ds      17
+   373                           
+   374                           global btemp
+   375                           psect inittext,class=CODE,delta=2
+   376                           global init_fetch,btemp
+   377                           ;	Called with low address in FSR and high address in W
+   378  0641                     init_fetch:
+   379  0641  087E               	movf btemp,w
+   380  0642  008A               	movwf pclath
+   381  0643  087F               	movf btemp+1,w
+   382  0644  0082               	movwf pc
+   383                           global init_ram
+   384                           ;Called with:
+   385                           ;	high address of idata address in btemp 
+   386                           ;	low address of idata address in btemp+1 
+   387                           ;	low address of data in FSR
+   388                           ;	high address + 1 of data in btemp-1
+   389  0645                     init_ram:
+   390  0645  2641  120A  118A   	fcall init_fetch
+   391  0648  0080               	movwf indf,f
+   392  0649  0A84               	incf fsr,f
+   393  064A  0804               	movf fsr,w
+   394  064B  067D               	xorwf btemp-1,w
+   395  064C  1903               	btfsc status,2
+   396  064D  3400               	retlw 0
+   397  064E  0AFF               	incf btemp+1,f
+   398  064F  1903               	btfsc status,2
+   399  0650  0AFE               	incf btemp,f
+   400  0651  2E45               	goto init_ram
+   401                           ; Initialize objects allocated to BANK1
+   402                           psect cinit,class=CODE,delta=2
+   403                           global init_ram, __pidataBANK1
+   404  0681  1383               	bcf	status, 7	;select IRP bank0
+   405  0682  30F0               	movlw low(__pdataBANK1+80)
+   406  0683  00FD               	movwf btemp-1,f
+   407  0684  3006               	movlw high(__pidataBANK1)
+   408  0685  00FE               	movwf btemp,f
+   409  0686  30FC               	movlw low(__pidataBANK1)
+   410  0687  00FF               	movwf btemp+1,f
+   411  0688  30A0               	movlw low(__pdataBANK1)
+   412  0689  0084               	movwf fsr,f
+   413  068A  120A  118A  2645   	fcall init_ram
+              120A  118A         
+   414                           ; Initialize objects allocated to BANK0
+   415                           psect cinit,class=CODE,delta=2
+   416                           global init_ram, __pidataBANK0
+   417  068F  3064               	movlw low(__pdataBANK0+68)
+   418  0690  00FD               	movwf btemp-1,f
+   419  0691  3006               	movlw high(__pidataBANK0)
+   420  0692  00FE               	movwf btemp,f
+   421  0693  30B8               	movlw low(__pidataBANK0)
+   422  0694  00FF               	movwf btemp+1,f
+   423  0695  3020               	movlw low(__pdataBANK0)
+   424  0696  0084               	movwf fsr,f
+   425  0697  120A  118A  2645   	fcall init_ram
+              120A  118A         
+   426                           ; Initialize objects allocated to COMMON
+   427                           	global __pidataCOMMON
+   428                           psect cinit,class=CODE,delta=2
+   429  069C  120A  118A  2616   	fcall	__pidataCOMMON+0		;fetch initializer
+              120A  118A         
+   430  06A1  00F8               	movwf	__pdataCOMMON+0&07fh		
+   431  06A2  120A  118A  2617   	fcall	__pidataCOMMON+1		;fetch initializer
+              120A  118A         
+   432  06A7  00F9               	movwf	__pdataCOMMON+1&07fh		
+   433  06A8  120A  118A  2618   	fcall	__pidataCOMMON+2		;fetch initializer
+              120A  118A         
+   434  06AD  00FA               	movwf	__pdataCOMMON+2&07fh		
+   435  06AE  120A  118A  2619   	fcall	__pidataCOMMON+3		;fetch initializer
+              120A  118A         
+   436  06B3  00FB               	movwf	__pdataCOMMON+3&07fh		
+   437                           psect cinit,class=CODE,delta=2
+   438                           global end_of_initialization
+   439                           
+   440                           ;End of C runtime variable initialization code
+   441                           
+   442  06B4                     end_of_initialization:
+   443  06B4  0183               clrf status
+   444  06B5  120A  118A  2E31   ljmp _main	;jump to C main() function
+   445                           psect	cstackCOMMON,class=COMMON,space=1
+   446                           global __pcstackCOMMON
+   447  0070                     __pcstackCOMMON:
+   448                           	global	?_Uart_tx
+   449  0070                     ?_Uart_tx:	; 0 bytes @ 0x0
+   450                           	global	??_Uart_tx
+   451  0070                     ??_Uart_tx:	; 0 bytes @ 0x0
+   452                           	global	?_LED
+   453  0070                     ?_LED:	; 0 bytes @ 0x0
+   454                           	global	??_LED
+   455  0070                     ??_LED:	; 0 bytes @ 0x0
+   456                           	global	?_uart_print
+   457  0070                     ?_uart_print:	; 0 bytes @ 0x0
+   458                           	global	??_uart_init
+   459  0070                     ??_uart_init:	; 0 bytes @ 0x0
+   460                           	global	?_pir_sensor
+   461  0070                     ?_pir_sensor:	; 0 bytes @ 0x0
+   462                           	global	?_uart_init
+   463  0070                     ?_uart_init:	; 1 bytes @ 0x0
+   464                           	global	?_main
+   465  0070                     ?_main:	; 2 bytes @ 0x0
+   466                           	global	Uart_tx@data
+   467  0070                     Uart_tx@data:	; 1 bytes @ 0x0
+   468  0070                     	ds	1
+   469                           	global	??_uart_print
+   470  0071                     ??_uart_print:	; 0 bytes @ 0x1
+   471  0071                     	ds	1
+   472                           	global	uart_print@str
+   473  0072                     uart_print@str:	; 1 bytes @ 0x2
+   474  0072                     	ds	1
+   475                           	global	??_pir_sensor
+   476  0073                     ??_pir_sensor:	; 0 bytes @ 0x3
+   477  0073                     	ds	3
+   478                           	global	pir_sensor@j
+   479  0076                     pir_sensor@j:	; 2 bytes @ 0x6
+   480  0076                     	ds	2
+   481                           	global	??_main
+   482  0078                     ??_main:	; 0 bytes @ 0x8
+   483 ;;Data sizes: Strings 0, constant 0, data 152, bss 0, persistent 0 stack 0
+   484 ;;Auto spaces:   Size  Autos    Used
+   485 ;; COMMON          14      8      12
+   486 ;; BANK0           80      0      68
+   487 ;; BANK1           80      0      80
+   488 ;; BANK3           96      0       0
+   489 ;; BANK2           96      0       0
+   490                           
+   491 ;;
+   492 ;; Pointer list with targets:
+   493                           
+   494 ;; uart_print@str	PTR unsigned char  size(1) Largest target is 23
+   495 ;;		 -> nomesg(BANK1[19]), mesg(BANK0[15]), mobile_no(BANK1[23]), param(BANK1[21]), 
+   496 ;;		 -> char_mode(BANK0[16]), mode_text(BANK0[12]), ph(BANK1[17]), AT(BANK0[5]), 
+   497 ;;
+   498                           
+   499                           
+   500 ;;
+   501 ;; Critical Paths under _main in COMMON
+   502 ;;
+   503 ;;   _main->_pir_sensor
+   504 ;;   _pir_sensor->_uart_print
+   505 ;;   _uart_print->_Uart_tx
+   506 ;;
+   507 ;; Critical Paths under _main in BANK0
+   508 ;;
+   509 ;;   None.
+   510 ;;
+   511 ;; Critical Paths under _main in BANK1
+   512 ;;
+   513 ;;   None.
+   514 ;;
+   515 ;; Critical Paths under _main in BANK3
+   516 ;;
+   517 ;;   None.
+   518 ;;
+   519 ;; Critical Paths under _main in BANK2
+   520 ;;
+   521 ;;   None.
+   522                           
+   523 ;;
+   524 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   525 ;;
+   526                           
+   527 ;;
+   528 ;;Call Graph Tables:
+   529 ;;
+   530 ;; ---------------------------------------------------------------------------------
+   531 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   532 ;; ---------------------------------------------------------------------------------
+   533 ;; (0) _main                                                 0     0      0     112
+   534 ;;                          _uart_init
+   535 ;;                         _pir_sensor
+   536 ;; ---------------------------------------------------------------------------------
+   537 ;; (1) _pir_sensor                                           5     5      0     112
+   538 ;;                                              3 COMMON     5     5      0
+   539 ;;                                _LED
+   540 ;;                         _uart_print
+   541 ;;                            _Uart_tx
+   542 ;; ---------------------------------------------------------------------------------
+   543 ;; (2) _uart_print                                           2     2      0      67
+   544 ;;                                              1 COMMON     2     2      0
+   545 ;;                            _Uart_tx
+   546 ;; ---------------------------------------------------------------------------------
+   547 ;; (1) _uart_init                                            0     0      0       0
+   548 ;; ---------------------------------------------------------------------------------
+   549 ;; (2) _LED                                                  0     0      0       0
+   550 ;; ---------------------------------------------------------------------------------
+   551 ;; (2) _Uart_tx                                              1     1      0      22
+   552 ;;                                              0 COMMON     1     1      0
+   553 ;; ---------------------------------------------------------------------------------
+   554 ;; Estimated maximum stack depth 2
+   555 ;; ---------------------------------------------------------------------------------
+   556                           
+   557 ;; Call Graph Graphs:
+   558                           
+   559 ;; _main (ROOT)
+   560 ;;   _uart_init
+   561 ;;   _pir_sensor
+   562 ;;     _LED
+   563 ;;     _uart_print
+   564 ;;       _Uart_tx
+   565 ;;     _Uart_tx
+   566 ;;
+   567                           
+   568 ;; Address spaces:
+   569                           
+   570 ;;Name               Size   Autos  Total    Cost      Usage
+   571 ;;BANK3               60      0       0       9        0.0%
+   572 ;;BITBANK3            60      0       0       8        0.0%
+   573 ;;SFR3                 0      0       0       4        0.0%
+   574 ;;BITSFR3              0      0       0       4        0.0%
+   575 ;;BANK2               60      0       0      11        0.0%
+   576 ;;BITBANK2            60      0       0      10        0.0%
+   577 ;;SFR2                 0      0       0       5        0.0%
+   578 ;;BITSFR2              0      0       0       5        0.0%
+   579 ;;SFR1                 0      0       0       2        0.0%
+   580 ;;BITSFR1              0      0       0       2        0.0%
+   581 ;;BANK1               50      0      50       7      100.0%
+   582 ;;BITBANK1            50      0       0       6        0.0%
+   583 ;;CODE                 0      0       0       0        0.0%
+   584 ;;DATA                 0      0      A3      12        0.0%
+   585 ;;ABS                  0      0      A0       3        0.0%
+   586 ;;NULL                 0      0       0       0        0.0%
+   587 ;;STACK                0      0       3       2        0.0%
+   588 ;;BANK0               50      0      44       5       85.0%
+   589 ;;BITBANK0            50      0       0       4        0.0%
+   590 ;;SFR0                 0      0       0       1        0.0%
+   591 ;;BITSFR0              0      0       0       1        0.0%
+   592 ;;COMMON               E      8       C       1       85.7%
+   593 ;;BITCOMMON            E      0       0       0        0.0%
+   594 ;;EEDATA             100      0       0       0        0.0%
+   595                           
+   596                           	global	_main
+   597                           psect	maintext,global,class=CODE,delta=2
+   598                           global __pmaintext
+   599  0631                     __pmaintext:
+   600                           
+   601 ;; *************** function _main *****************
+   602 ;; Defined at:
+   603 ;;		line 113 in file "C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   604 ;; Parameters:    Size  Location     Type
+   605 ;;		None
+   606 ;; Auto vars:     Size  Location     Type
+   607 ;;		None
+   608 ;; Return value:  Size  Location     Type
+   609 ;;                  2  742[COMMON] int 
+   610 ;; Registers used:
+   611 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   612 ;; Tracked objects:
+   613 ;;		On entry : 17F/0
+   614 ;;		On exit  : 0/0
+   615 ;;		Unchanged: 0/0
+   616 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   617 ;;      Params:         0       0       0       0       0
+   618 ;;      Locals:         0       0       0       0       0
+   619 ;;      Temps:          0       0       0       0       0
+   620 ;;      Totals:         0       0       0       0       0
+   621 ;;Total ram usage:        0 bytes
+   622 ;; Hardware stack levels required when called:    3
+   623 ;; This function calls:
+   624 ;;		_uart_init
+   625 ;;		_pir_sensor
+   626 ;; This function is called by:
+   627 ;;		Startup code after reset
+   628 ;; This function uses a non-reentrant model
+   629 ;;
+   630                           psect	maintext
+   631                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   632                           	line	113
+   633                           	global	__size_of_main
+   634  0010                     	__size_of_main	equ	__end_of_main-_main
+   635                           	
+   636  0631                     _main:	
+   637                           	opt	stack 5
+   638                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   639                           	line	114
+   640                           	
+   641  0631                     l2007:	
+   642                           ;message.c: 114: uart_init();
+   643  0631  120A  118A  2652   	fcall	_uart_init
+              120A  118A         
+   644  0636  2E37               	goto	l2009
+   645                           	line	115
+   646                           ;message.c: 115: while(1)
+   647                           	
+   648  0637                     l743:	
+   649                           	line	117
+   650                           	
+   651  0637                     l2009:	
+   652                           ;message.c: 116: {
+   653                           ;message.c: 117: pir_sensor();
+   654  0637  120A  118A  274C   	fcall	_pir_sensor
+              120A  118A         
+   655  063C  2E37               	goto	l2009
+   656                           	line	118
+   657                           	
+   658  063D                     l744:	
+   659                           	line	115
+   660  063D  2E37               	goto	l2009
+   661                           	
+   662  063E                     l745:	
+   663                           	line	119
+   664                           	
+   665  063E                     l746:	
+   666                           	global	start
+   667  063E  120A  118A  2800   	ljmp	start
+   668                           	opt stack 0
+   669                           GLOBAL	__end_of_main
+   670  0641                     	__end_of_main:
+   671 ;; =============== function _main ends ============
+   672                           
+   673                           	signat	_main,90
+   674                           	global	_pir_sensor
+   675                           psect	text163,local,class=CODE,delta=2
+   676                           global __ptext163
+   677  074C                     __ptext163:
+   678                           
+   679 ;; *************** function _pir_sensor *****************
+   680 ;; Defined at:
+   681 ;;		line 72 in file "C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   682 ;; Parameters:    Size  Location     Type
+   683 ;;		None
+   684 ;; Auto vars:     Size  Location     Type
+   685 ;;  j               2    6[COMMON] int 
+   686 ;; Return value:  Size  Location     Type
+   687 ;;		None               void
+   688 ;; Registers used:
+   689 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   690 ;; Tracked objects:
+   691 ;;		On entry : 0/0
+   692 ;;		On exit  : 0/0
+   693 ;;		Unchanged: 0/0
+   694 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   695 ;;      Params:         0       0       0       0       0
+   696 ;;      Locals:         2       0       0       0       0
+   697 ;;      Temps:          3       0       0       0       0
+   698 ;;      Totals:         5       0       0       0       0
+   699 ;;Total ram usage:        5 bytes
+   700 ;; Hardware stack levels used:    1
+   701 ;; Hardware stack levels required when called:    2
+   702 ;; This function calls:
+   703 ;;		_LED
+   704 ;;		_uart_print
+   705 ;;		_Uart_tx
+   706 ;; This function is called by:
+   707 ;;		_main
+   708 ;; This function uses a non-reentrant model
+   709 ;;
+   710                           psect	text163
+   711                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+   712                           	line	72
+   713                           	global	__size_of_pir_sensor
+   714  00B4                     	__size_of_pir_sensor	equ	__end_of_pir_sensor-_pir_sensor
+   715                           	
+   716  074C                     _pir_sensor:	
+   717                           	opt	stack 5
+   718                           ; Regs used in _pir_sensor: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   719                           	line	73
+   720                           	
+   721  074C                     l1969:	
+   722                           ;message.c: 73: int j=0;
+   723  074C  01F6               	clrf	(pir_sensor@j)
+   724  074D  01F7               	clrf	(pir_sensor@j+1)
+   725                           	line	74
+   726                           	
+   727  074E                     l1971:	
+   728                           ;message.c: 74: if(RD1==1)
+   729  074E  1283               	bcf	status, 5	;RP0=0, select bank0
+   730  074F  1303               	bcf	status, 6	;RP1=0, select bank0
+   731  0750  1C88               	btfss	(65/8),(65)&7
+   732  0751  2F53               	goto	u2221
+   733  0752  2F54               	goto	u2220
+   734  0753                     u2221:
+   735  0753  2FE1               	goto	l1999
+   736  0754                     u2220:
+   737                           	line	76
+   738                           	
+   739  0754                     l1973:	
+   740                           ;message.c: 75: {
+   741                           ;message.c: 76: LED();
+   742  0754  120A  118A  261A   	fcall	_LED
+              120A  118A         
+   743  0759  2F5B               	goto	l1977
+   744                           	line	77
+   745                           	
+   746  075A                     l1975:	
+   747  075A  2F5B               	goto	l1977
+   748                           	
+   749  075B                     l738:	
+   750                           	line	79
+   751                           	
+   752  075B                     l1977:	
+   753                           ;message.c: 78: {
+   754                           ;message.c: 79: uart_print(AT);
+   755  075B  305F               	movlw	(_AT)&0ffh
+   756  075C  120A  118A  2667   	fcall	_uart_print
+              120A  118A         
+   757                           	line	80
+   758                           	
+   759  0761                     l1979:	
+   760                           ;message.c: 80: _delay((unsigned long)((100)*(20000000/4000.0)));
+   761                           	opt asmopt_off
+   762  0761  3003               movlw  3
+   763  0762  00F5               movwf	((??_pir_sensor+0)+0+2),f
+   764  0763  3088               movlw	136
+   765  0764  00F4               movwf	((??_pir_sensor+0)+0+1),f
+   766  0765  3056               	movlw	86
+   767  0766  00F3               movwf	((??_pir_sensor+0)+0),f
+   768  0767                     u2237:
+   769  0767  0BF3               	decfsz	((??_pir_sensor+0)+0),f
+   770  0768  2F67               	goto	u2237
+   771  0769  0BF4               	decfsz	((??_pir_sensor+0)+0+1),f
+   772  076A  2F67               	goto	u2237
+   773  076B  0BF5               	decfsz	((??_pir_sensor+0)+0+2),f
+   774  076C  2F67               	goto	u2237
+   775                           opt asmopt_on
+   776                           
+   777                           	line	82
+   778                           	
+   779  076D                     l1981:	
+   780                           ;message.c: 82: uart_print(ph);
+   781  076D  30DF               	movlw	(_ph)&0ffh
+   782  076E  120A  118A  2667   	fcall	_uart_print
+              120A  118A         
+   783                           	line	83
+   784                           ;message.c: 83: _delay((unsigned long)((3000)*(20000000/4000.0)));
+   785                           	opt asmopt_off
+   786  0773  304C               movlw  76
+   787  0774  00F5               movwf	((??_pir_sensor+0)+0+2),f
+   788  0775  30CE               movlw	206
+   789  0776  00F4               movwf	((??_pir_sensor+0)+0+1),f
+   790  0777  3081               	movlw	129
+   791  0778  00F3               movwf	((??_pir_sensor+0)+0),f
+   792  0779                     u2247:
+   793  0779  0BF3               	decfsz	((??_pir_sensor+0)+0),f
+   794  077A  2F79               	goto	u2247
+   795  077B  0BF4               	decfsz	((??_pir_sensor+0)+0+1),f
+   796  077C  2F79               	goto	u2247
+   797  077D  0BF5               	decfsz	((??_pir_sensor+0)+0+2),f
+   798  077E  2F79               	goto	u2247
+   799  077F  0064               	clrwdt
+   800                           opt asmopt_on
+   801                           
+   802                           	line	85
+   803                           	
+   804  0780                     l1983:	
+   805                           ;message.c: 85: uart_print(mode_text);
+   806  0780  3053               	movlw	(_mode_text)&0ffh
+   807  0781  120A  118A  2667   	fcall	_uart_print
+              120A  118A         
+   808                           	line	86
+   809                           	
+   810  0786                     l1985:	
+   811                           ;message.c: 86: _delay((unsigned long)((100)*(20000000/4000.0)));
+   812                           	opt asmopt_off
+   813  0786  3003               movlw  3
+   814  0787  00F5               movwf	((??_pir_sensor+0)+0+2),f
+   815  0788  3088               movlw	136
+   816  0789  00F4               movwf	((??_pir_sensor+0)+0+1),f
+   817  078A  3056               	movlw	86
+   818  078B  00F3               movwf	((??_pir_sensor+0)+0),f
+   819  078C                     u2257:
+   820  078C  0BF3               	decfsz	((??_pir_sensor+0)+0),f
+   821  078D  2F8C               	goto	u2257
+   822  078E  0BF4               	decfsz	((??_pir_sensor+0)+0+1),f
+   823  078F  2F8C               	goto	u2257
+   824  0790  0BF5               	decfsz	((??_pir_sensor+0)+0+2),f
+   825  0791  2F8C               	goto	u2257
+   826                           opt asmopt_on
+   827                           
+   828                           	line	88
+   829                           ;message.c: 88: uart_print(char_mode);
+   830  0792  3034               	movlw	(_char_mode)&0ffh
+   831  0793  120A  118A  2667   	fcall	_uart_print
+              120A  118A         
+   832                           	line	89
+   833                           	
+   834  0798                     l1987:	
+   835                           ;message.c: 89: _delay((unsigned long)((100)*(20000000/4000.0)));
+   836                           	opt asmopt_off
+   837  0798  3003               movlw  3
+   838  0799  00F5               movwf	((??_pir_sensor+0)+0+2),f
+   839  079A  3088               movlw	136
+   840  079B  00F4               movwf	((??_pir_sensor+0)+0+1),f
+   841  079C  3056               	movlw	86
+   842  079D  00F3               movwf	((??_pir_sensor+0)+0),f
+   843  079E                     u2267:
+   844  079E  0BF3               	decfsz	((??_pir_sensor+0)+0),f
+   845  079F  2F9E               	goto	u2267
+   846  07A0  0BF4               	decfsz	((??_pir_sensor+0)+0+1),f
+   847  07A1  2F9E               	goto	u2267
+   848  07A2  0BF5               	decfsz	((??_pir_sensor+0)+0+2),f
+   849  07A3  2F9E               	goto	u2267
+   850                           opt asmopt_on
+   851                           
+   852                           	line	91
+   853                           	
+   854  07A4                     l1989:	
+   855                           ;message.c: 91: uart_print(param);
+   856  07A4  30B7               	movlw	(_param)&0ffh
+   857  07A5  120A  118A  2667   	fcall	_uart_print
+              120A  118A         
+   858                           	line	92
+   859                           ;message.c: 92: _delay((unsigned long)((100)*(20000000/4000.0)));
+   860                           	opt asmopt_off
+   861  07AA  3003               movlw  3
+   862  07AB  00F5               movwf	((??_pir_sensor+0)+0+2),f
+   863  07AC  3088               movlw	136
+   864  07AD  00F4               movwf	((??_pir_sensor+0)+0+1),f
+   865  07AE  3056               	movlw	86
+   866  07AF  00F3               movwf	((??_pir_sensor+0)+0),f
+   867  07B0                     u2277:
+   868  07B0  0BF3               	decfsz	((??_pir_sensor+0)+0),f
+   869  07B1  2FB0               	goto	u2277
+   870  07B2  0BF4               	decfsz	((??_pir_sensor+0)+0+1),f
+   871  07B3  2FB0               	goto	u2277
+   872  07B4  0BF5               	decfsz	((??_pir_sensor+0)+0+2),f
+   873  07B5  2FB0               	goto	u2277
+   874                           opt asmopt_on
+   875                           
+   876                           	line	94
+   877                           	
+   878  07B6                     l1991:	
+   879                           ;message.c: 94: uart_print(mobile_no);
+   880  07B6  30A0               	movlw	(_mobile_no)&0ffh
+   881  07B7  120A  118A  2667   	fcall	_uart_print
+              120A  118A         
+   882                           	line	95
+   883                           	
+   884  07BC                     l1993:	
+   885                           ;message.c: 95: _delay((unsigned long)((100)*(20000000/4000.0)));
+   886                           	opt asmopt_off
+   887  07BC  3003               movlw  3
+   888  07BD  00F5               movwf	((??_pir_sensor+0)+0+2),f
+   889  07BE  3088               movlw	136
+   890  07BF  00F4               movwf	((??_pir_sensor+0)+0+1),f
+   891  07C0  3056               	movlw	86
+   892  07C1  00F3               movwf	((??_pir_sensor+0)+0),f
+   893  07C2                     u2287:
+   894  07C2  0BF3               	decfsz	((??_pir_sensor+0)+0),f
+   895  07C3  2FC2               	goto	u2287
+   896  07C4  0BF4               	decfsz	((??_pir_sensor+0)+0+1),f
+   897  07C5  2FC2               	goto	u2287
+   898  07C6  0BF5               	decfsz	((??_pir_sensor+0)+0+2),f
+   899  07C7  2FC2               	goto	u2287
+   900                           opt asmopt_on
+   901                           
+   902                           	line	97
+   903                           ;message.c: 97: uart_print(mesg);
+   904  07C8  3044               	movlw	(_mesg)&0ffh
+   905  07C9  120A  118A  2667   	fcall	_uart_print
+              120A  118A         
+   906                           	line	98
+   907                           	
+   908  07CE                     l1995:	
+   909                           ;message.c: 98: Uart_tx(0x1a);
+   910  07CE  301A               	movlw	(01Ah)
+   911  07CF  120A  118A  2625   	fcall	_Uart_tx
+              120A  118A         
+   912                           	line	99
+   913                           	
+   914  07D4                     l1997:	
+   915                           ;message.c: 99: _delay((unsigned long)((1000)*(20000000/4000.0)));
+   916                           	opt asmopt_off
+   917  07D4  301A               movlw  26
+   918  07D5  00F5               movwf	((??_pir_sensor+0)+0+2),f
+   919  07D6  3045               movlw	69
+   920  07D7  00F4               movwf	((??_pir_sensor+0)+0+1),f
+   921  07D8  307E               	movlw	126
+   922  07D9  00F3               movwf	((??_pir_sensor+0)+0),f
+   923  07DA                     u2297:
+   924  07DA  0BF3               	decfsz	((??_pir_sensor+0)+0),f
+   925  07DB  2FDA               	goto	u2297
+   926  07DC  0BF4               	decfsz	((??_pir_sensor+0)+0+1),f
+   927  07DD  2FDA               	goto	u2297
+   928  07DE  0BF5               	decfsz	((??_pir_sensor+0)+0+2),f
+   929  07DF  2FDA               	goto	u2297
+   930                           opt asmopt_on
+   931                           
+   932                           	line	101
+   933                           ;message.c: 100: }
+   934                           ;message.c: 101: }
+   935  07E0  2FFF               	goto	l740
+   936                           	line	102
+   937                           	
+   938  07E1                     l737:	
+   939                           	line	104
+   940                           	
+   941  07E1                     l1999:	
+   942                           ;message.c: 102: else
+   943                           ;message.c: 103: {
+   944                           ;message.c: 104: LED();
+   945  07E1  120A  118A  261A   	fcall	_LED
+              120A  118A         
+   946                           	line	105
+   947                           	
+   948  07E6                     l2001:	
+   949                           ;message.c: 105: uart_print(nomesg);
+   950  07E6  30CC               	movlw	(_nomesg)&0ffh
+   951  07E7  120A  118A  2667   	fcall	_uart_print
+              120A  118A         
+   952                           	line	106
+   953                           	
+   954  07EC                     l2003:	
+   955                           ;message.c: 106: Uart_tx(0x1a);
+   956  07EC  301A               	movlw	(01Ah)
+   957  07ED  120A  118A  2625   	fcall	_Uart_tx
+              120A  118A         
+   958                           	line	107
+   959                           	
+   960  07F2                     l2005:	
+   961                           ;message.c: 107: _delay((unsigned long)((1000)*(20000000/4000.0)));
+   962                           	opt asmopt_off
+   963  07F2  301A               movlw  26
+   964  07F3  00F5               movwf	((??_pir_sensor+0)+0+2),f
+   965  07F4  3045               movlw	69
+   966  07F5  00F4               movwf	((??_pir_sensor+0)+0+1),f
+   967  07F6  307E               	movlw	126
+   968  07F7  00F3               movwf	((??_pir_sensor+0)+0),f
+   969  07F8                     u2307:
+   970  07F8  0BF3               	decfsz	((??_pir_sensor+0)+0),f
+   971  07F9  2FF8               	goto	u2307
+   972  07FA  0BF4               	decfsz	((??_pir_sensor+0)+0+1),f
+   973  07FB  2FF8               	goto	u2307
+   974  07FC  0BF5               	decfsz	((??_pir_sensor+0)+0+2),f
+   975  07FD  2FF8               	goto	u2307
+   976                           opt asmopt_on
+   977                           
+   978  07FE  2FFF               	goto	l740
+   979                           	line	108
+   980                           	
+   981  07FF                     l739:	
+   982                           	line	110
+   983                           	
+   984  07FF                     l740:	
+   985  07FF  0008               	return
+   986                           	opt stack 0
+   987                           GLOBAL	__end_of_pir_sensor
+   988  0800                     	__end_of_pir_sensor:
+   989 ;; =============== function _pir_sensor ends ============
+   990                           
+   991                           	signat	_pir_sensor,88
+   992                           	global	_uart_print
+   993                           psect	text164,local,class=CODE,delta=2
+   994                           global __ptext164
+   995  0667                     __ptext164:
+   996                           
+   997 ;; *************** function _uart_print *****************
+   998 ;; Defined at:
+   999 ;;		line 52 in file "C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+  1000 ;; Parameters:    Size  Location     Type
+  1001 ;;  str             1    wreg     PTR unsigned char 
+  1002 ;;		 -> nomesg(19), mesg(15), mobile_no(23), param(21), 
+  1003 ;;		 -> char_mode(16), mode_text(12), ph(17), AT(5), 
+  1004 ;; Auto vars:     Size  Location     Type
+  1005 ;;  str             1    2[COMMON] PTR unsigned char 
+  1006 ;;		 -> nomesg(19), mesg(15), mobile_no(23), param(21), 
+  1007 ;;		 -> char_mode(16), mode_text(12), ph(17), AT(5), 
+  1008 ;; Return value:  Size  Location     Type
+  1009 ;;		None               void
+  1010 ;; Registers used:
+  1011 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1012 ;; Tracked objects:
+  1013 ;;		On entry : 0/0
+  1014 ;;		On exit  : 0/0
+  1015 ;;		Unchanged: 0/0
+  1016 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1017 ;;      Params:         0       0       0       0       0
+  1018 ;;      Locals:         1       0       0       0       0
+  1019 ;;      Temps:          1       0       0       0       0
+  1020 ;;      Totals:         2       0       0       0       0
+  1021 ;;Total ram usage:        2 bytes
+  1022 ;; Hardware stack levels used:    1
+  1023 ;; Hardware stack levels required when called:    1
+  1024 ;; This function calls:
+  1025 ;;		_Uart_tx
+  1026 ;; This function is called by:
+  1027 ;;		_pir_sensor
+  1028 ;; This function uses a non-reentrant model
+  1029 ;;
+  1030                           psect	text164
+  1031                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+  1032                           	line	52
+  1033                           	global	__size_of_uart_print
+  1034  001A                     	__size_of_uart_print	equ	__end_of_uart_print-_uart_print
+  1035                           	
+  1036  0667                     _uart_print:	
+  1037                           	opt	stack 5
+  1038                           ; Regs used in _uart_print: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1039                           ;uart_print@str stored from wreg
+  1040  0667  00F2               	movwf	(uart_print@str)
+  1041                           	line	53
+  1042                           	
+  1043  0668                     l1961:	
+  1044                           ;message.c: 53: while(*str)
+  1045  0668  2E77               	goto	l1967
+  1046                           	
+  1047  0669                     l729:	
+  1048                           	line	55
+  1049                           	
+  1050  0669                     l1963:	
+  1051                           ;message.c: 54: {
+  1052                           ;message.c: 55: Uart_tx(*str++);
+  1053  0669  0872               	movf	(uart_print@str),w
+  1054  066A  0084               	movwf	fsr0
+  1055  066B  1383               	bcf	status, 7	;select IRP bank0
+  1056  066C  0800               	movf	indf,w
+  1057  066D  120A  118A  2625   	fcall	_Uart_tx
+              120A  118A         
+  1058                           	
+  1059  0672                     l1965:	
+  1060  0672  3001               	movlw	(01h)
+  1061  0673  00F1               	movwf	(??_uart_print+0)+0
+  1062  0674  0871               	movf	(??_uart_print+0)+0,w
+  1063  0675  07F2               	addwf	(uart_print@str),f
+  1064  0676  2E77               	goto	l1967
+  1065                           	line	56
+  1066                           	
+  1067  0677                     l728:	
+  1068                           	line	53
+  1069                           	
+  1070  0677                     l1967:	
+  1071  0677  0872               	movf	(uart_print@str),w
+  1072  0678  0084               	movwf	fsr0
+  1073  0679  1383               	bcf	status, 7	;select IRP bank0
+  1074  067A  0880               	movf	indf,f
+  1075  067B  1D03               	skipz
+  1076  067C  2E7E               	goto	u2211
+  1077  067D  2E7F               	goto	u2210
+  1078  067E                     u2211:
+  1079  067E  2E69               	goto	l1963
+  1080  067F                     u2210:
+  1081  067F  2E80               	goto	l731
+  1082                           	
+  1083  0680                     l730:	
+  1084                           	line	57
+  1085                           	
+  1086  0680                     l731:	
+  1087  0680  0008               	return
+  1088                           	opt stack 0
+  1089                           GLOBAL	__end_of_uart_print
+  1090  0681                     	__end_of_uart_print:
+  1091 ;; =============== function _uart_print ends ============
+  1092                           
+  1093                           	signat	_uart_print,4216
+  1094                           	global	_uart_init
+  1095                           psect	text165,local,class=CODE,delta=2
+  1096                           global __ptext165
+  1097  0652                     __ptext165:
+  1098                           
+  1099 ;; *************** function _uart_init *****************
+  1100 ;; Defined at:
+  1101 ;;		line 59 in file "C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+  1102 ;; Parameters:    Size  Location     Type
+  1103 ;;		None
+  1104 ;; Auto vars:     Size  Location     Type
+  1105 ;;		None
+  1106 ;; Return value:  Size  Location     Type
+  1107 ;;                  1    wreg      unsigned char 
+  1108 ;; Registers used:
+  1109 ;;		wreg
+  1110 ;; Tracked objects:
+  1111 ;;		On entry : 0/0
+  1112 ;;		On exit  : 0/0
+  1113 ;;		Unchanged: 0/0
+  1114 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1115 ;;      Params:         0       0       0       0       0
+  1116 ;;      Locals:         0       0       0       0       0
+  1117 ;;      Temps:          0       0       0       0       0
+  1118 ;;      Totals:         0       0       0       0       0
+  1119 ;;Total ram usage:        0 bytes
+  1120 ;; Hardware stack levels used:    1
+  1121 ;; This function calls:
+  1122 ;;		Nothing
+  1123 ;; This function is called by:
+  1124 ;;		_main
+  1125 ;; This function uses a non-reentrant model
+  1126 ;;
+  1127                           psect	text165
+  1128                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+  1129                           	line	59
+  1130                           	global	__size_of_uart_init
+  1131  0015                     	__size_of_uart_init	equ	__end_of_uart_init-_uart_init
+  1132                           	
+  1133  0652                     _uart_init:	
+  1134                           	opt	stack 7
+  1135                           ; Regs used in _uart_init: [wreg]
+  1136                           	line	60
+  1137                           	
+  1138  0652                     l1131:	
+  1139                           ;message.c: 60: TRISD1 = 1;
+  1140  0652  1683               	bsf	status, 5	;RP0=1, select bank1
+  1141  0653  1303               	bcf	status, 6	;RP1=0, select bank1
+  1142  0654  1488               	bsf	(1089/8)^080h,(1089)&7
+  1143                           	line	61
+  1144                           ;message.c: 61: TRISD0 = 0;
+  1145  0655  1008               	bcf	(1088/8)^080h,(1088)&7
+  1146                           	line	62
+  1147                           ;message.c: 62: TRISC6 = 0;
+  1148  0656  1307               	bcf	(1086/8)^080h,(1086)&7
+  1149                           	line	63
+  1150                           ;message.c: 63: TRISC7 = 1;
+  1151  0657  1787               	bsf	(1087/8)^080h,(1087)&7
+  1152                           	line	64
+  1153                           	
+  1154  0658                     l1133:	
+  1155                           ;message.c: 64: TXSTA = 0X20;
+  1156  0658  3020               	movlw	(020h)
+  1157  0659  0098               	movwf	(152)^080h	;volatile
+  1158                           	line	65
+  1159                           ;message.c: 65: RCSTA = 0X90;
+  1160  065A  3090               	movlw	(090h)
+  1161  065B  1283               	bcf	status, 5	;RP0=0, select bank0
+  1162  065C  1303               	bcf	status, 6	;RP1=0, select bank0
+  1163  065D  0098               	movwf	(24)	;volatile
+  1164                           	line	66
+  1165                           ;message.c: 66: SPBRG=31;
+  1166  065E  301F               	movlw	(01Fh)
+  1167  065F  1683               	bsf	status, 5	;RP0=1, select bank1
+  1168  0660  1303               	bcf	status, 6	;RP1=0, select bank1
+  1169  0661  0099               	movwf	(153)^080h	;volatile
+  1170                           	line	67
+  1171                           	
+  1172  0662                     l1135:	
+  1173                           ;message.c: 67: TXIF = 0;
+  1174  0662  1283               	bcf	status, 5	;RP0=0, select bank0
+  1175  0663  1303               	bcf	status, 6	;RP1=0, select bank0
+  1176  0664  120C               	bcf	(100/8),(100)&7
+  1177                           	line	68
+  1178                           	
+  1179  0665                     l1137:	
+  1180                           ;message.c: 68: RCIF = 0;
+  1181  0665  128C               	bcf	(101/8),(101)&7
+  1182                           	line	69
+  1183                           	
+  1184  0666                     l734:	
+  1185  0666  0008               	return
+  1186                           	opt stack 0
+  1187                           GLOBAL	__end_of_uart_init
+  1188  0667                     	__end_of_uart_init:
+  1189 ;; =============== function _uart_init ends ============
+  1190                           
+  1191                           	signat	_uart_init,89
+  1192                           	global	_LED
+  1193                           psect	text166,local,class=CODE,delta=2
+  1194                           global __ptext166
+  1195  061A                     __ptext166:
+  1196                           
+  1197 ;; *************** function _LED *****************
+  1198 ;; Defined at:
+  1199 ;;		line 40 in file "C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+  1200 ;; Parameters:    Size  Location     Type
+  1201 ;;		None
+  1202 ;; Auto vars:     Size  Location     Type
+  1203 ;;		None
+  1204 ;; Return value:  Size  Location     Type
+  1205 ;;		None               void
+  1206 ;; Registers used:
+  1207 ;;		None
+  1208 ;; Tracked objects:
+  1209 ;;		On entry : 0/0
+  1210 ;;		On exit  : 0/0
+  1211 ;;		Unchanged: 0/0
+  1212 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1213 ;;      Params:         0       0       0       0       0
+  1214 ;;      Locals:         0       0       0       0       0
+  1215 ;;      Temps:          0       0       0       0       0
+  1216 ;;      Totals:         0       0       0       0       0
+  1217 ;;Total ram usage:        0 bytes
+  1218 ;; Hardware stack levels used:    1
+  1219 ;; This function calls:
+  1220 ;;		Nothing
+  1221 ;; This function is called by:
+  1222 ;;		_pir_sensor
+  1223 ;; This function uses a non-reentrant model
+  1224 ;;
+  1225                           psect	text166
+  1226                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+  1227                           	line	40
+  1228                           	global	__size_of_LED
+  1229  000B                     	__size_of_LED	equ	__end_of_LED-_LED
+  1230                           	
+  1231  061A                     _LED:	
+  1232                           	opt	stack 6
+  1233                           ; Regs used in _LED: []
+  1234                           	line	41
+  1235                           	
+  1236  061A                     l1957:	
+  1237                           ;message.c: 41: if(RD1==1)
+  1238  061A  1283               	bcf	status, 5	;RP0=0, select bank0
+  1239  061B  1303               	bcf	status, 6	;RP1=0, select bank0
+  1240  061C  1C88               	btfss	(65/8),(65)&7
+  1241  061D  2E1F               	goto	u2201
+  1242  061E  2E20               	goto	u2200
+  1243  061F                     u2201:
+  1244  061F  2E22               	goto	l723
+  1245  0620                     u2200:
+  1246                           	line	43
+  1247                           	
+  1248  0620                     l1959:	
+  1249                           ;message.c: 42: {
+  1250                           ;message.c: 43: RD0 = 1;
+  1251  0620  1408               	bsf	(64/8),(64)&7
+  1252                           	line	44
+  1253                           ;message.c: 44: }
+  1254  0621  2E24               	goto	l725
+  1255                           	line	45
+  1256                           	
+  1257  0622                     l723:	
+  1258                           	line	47
+  1259                           ;message.c: 45: else
+  1260                           ;message.c: 46: {
+  1261                           ;message.c: 47: RD0 = 0;
+  1262  0622  1008               	bcf	(64/8),(64)&7
+  1263  0623  2E24               	goto	l725
+  1264                           	line	48
+  1265                           	
+  1266  0624                     l724:	
+  1267                           	line	49
+  1268                           	
+  1269  0624                     l725:	
+  1270  0624  0008               	return
+  1271                           	opt stack 0
+  1272                           GLOBAL	__end_of_LED
+  1273  0625                     	__end_of_LED:
+  1274 ;; =============== function _LED ends ============
+  1275                           
+  1276                           	signat	_LED,88
+  1277                           	global	_Uart_tx
+  1278                           psect	text167,local,class=CODE,delta=2
+  1279                           global __ptext167
+  1280  0625                     __ptext167:
+  1281                           
+  1282 ;; *************** function _Uart_tx *****************
+  1283 ;; Defined at:
+  1284 ;;		line 26 in file "C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+  1285 ;; Parameters:    Size  Location     Type
+  1286 ;;  data            1    wreg     unsigned char 
+  1287 ;; Auto vars:     Size  Location     Type
+  1288 ;;  data            1    0[COMMON] unsigned char 
+  1289 ;; Return value:  Size  Location     Type
+  1290 ;;		None               void
+  1291 ;; Registers used:
+  1292 ;;		wreg
+  1293 ;; Tracked objects:
+  1294 ;;		On entry : 0/0
+  1295 ;;		On exit  : 0/0
+  1296 ;;		Unchanged: 0/0
+  1297 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1298 ;;      Params:         0       0       0       0       0
+  1299 ;;      Locals:         1       0       0       0       0
+  1300 ;;      Temps:          0       0       0       0       0
+  1301 ;;      Totals:         1       0       0       0       0
+  1302 ;;Total ram usage:        1 bytes
+  1303 ;; Hardware stack levels used:    1
+  1304 ;; This function calls:
+  1305 ;;		Nothing
+  1306 ;; This function is called by:
+  1307 ;;		_uart_print
+  1308 ;;		_pir_sensor
+  1309 ;; This function uses a non-reentrant model
+  1310 ;;
+  1311                           psect	text167
+  1312                           	file	"C:\Users\r_m_a\Desktop\UART TO GSM\sam29-7-2022\message.c"
+  1313                           	line	26
+  1314                           	global	__size_of_Uart_tx
+  1315  000C                     	__size_of_Uart_tx	equ	__end_of_Uart_tx-_Uart_tx
+  1316                           	
+  1317  0625                     _Uart_tx:	
+  1318                           	opt	stack 6
+  1319                           ; Regs used in _Uart_tx: [wreg]
+  1320                           ;Uart_tx@data stored from wreg
+  1321  0625  00F0               	movwf	(Uart_tx@data)
+  1322                           	line	27
+  1323                           	
+  1324  0626                     l1955:	
+  1325                           ;message.c: 27: TXREG=data;
+  1326  0626  0870               	movf	(Uart_tx@data),w
+  1327  0627  1283               	bcf	status, 5	;RP0=0, select bank0
+  1328  0628  1303               	bcf	status, 6	;RP1=0, select bank0
+  1329  0629  0099               	movwf	(25)	;volatile
+  1330                           	line	28
+  1331                           ;message.c: 28: while(!TXIF);
+  1332  062A  2E2B               	goto	l711
+  1333                           	
+  1334  062B                     l712:	
+  1335                           	
+  1336  062B                     l711:	
+  1337  062B  1E0C               	btfss	(100/8),(100)&7
+  1338  062C  2E2E               	goto	u2191
+  1339  062D  2E2F               	goto	u2190
+  1340  062E                     u2191:
+  1341  062E  2E2B               	goto	l711
+  1342  062F                     u2190:
+  1343                           	
+  1344  062F                     l713:	
+  1345                           	line	29
+  1346                           ;message.c: 29: TXIF = 0;
+  1347  062F  120C               	bcf	(100/8),(100)&7
+  1348                           	line	30
+  1349                           	
+  1350  0630                     l714:	
+  1351  0630  0008               	return
+  1352                           	opt stack 0
+  1353                           GLOBAL	__end_of_Uart_tx
+  1354  0631                     	__end_of_Uart_tx:
+  1355 ;; =============== function _Uart_tx ends ============
+  1356                           
+  1357                           	signat	_Uart_tx,4216
+  1358                           psect	text168,local,class=CODE,delta=2
+  1359                           global __ptext168
+  1360  0000                     __ptext168:
+  1361                           	global	btemp
+  1362  007E                     	btemp set 07Eh
+  1363                           
+  1364                           	DABS	1,126,2	;btemp
+  1365                           	global	wtemp0
+  1366  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Tue Aug 02 18:32:40 2022
+
+                   pc 0002                    _AT 005F                    _ph 00DF                    fsr 0004  
+                 l711 062B                   l712 062B                   l713 062F                   l714 0630  
+                 l730 0680                   l723 0622                   l731 0680                   l724 0624  
+                 l740 07FF                   l725 0624                   l734 0666                   l743 0637  
+                 l728 0677                   l744 063D                   l729 0669                   l737 07E1  
+                 l745 063E                   l738 075B                   l746 063E                   l739 07FF  
+                 _LED 061A                   _RD0 0040                   _RD1 0041                   fsr0 0004  
+                 indf 0000                  ?_LED 0070                  l2001 07E6                  l1131 0652  
+                l2003 07EC                  l1133 0658                  l2005 07F2                  l1135 0662  
+                l2007 0631                  l1137 0665                  l2009 0637                  l1961 0668  
+                l1955 0626                  l1963 0669                  l1971 074E                  l1957 061A  
+                l1965 0672                  l1981 076D                  l1973 0754                  l1959 0620  
+                l1967 0677                  l1991 07B6                  l1983 0780                  l1975 075A  
+                l1993 07BC                  l1985 0786                  l1977 075B                  l1969 074C  
+                l1995 07CE                  l1987 0798                  l1979 0761                  l1997 07D4  
+                l1989 07A4                  l1999 07E1                  u2200 0620                  u2201 061F  
+                u2210 067F                  u2211 067E                  u2220 0754                  u2221 0753  
+                u2307 07F8                  u2237 0767                  u2190 062F                  u2191 062E  
+                u2247 0779                  u2257 078C                  u2267 079E                  u2277 07B0  
+                u2287 07C2                  u2297 07DA                  _RCIF 0065                  _TXIF 0064  
+                _main 0631                  _mesg 0044                  btemp 007E                  _stop 0078  
+                start 0000                 ??_LED 0070       __end_of_Uart_tx 0631                 ?_main 0070  
+               _RCREG 001A                 _RCSTA 0018                 _SPBRG 0099                 _TXREG 0019  
+               _TXSTA 0098                 _param 00B7                 pclath 000A                 status 0003  
+               wtemp0 007E          __end_of_main 0641                ??_main 0078                _TRISD0 0440  
+              _TRISD1 0441                _TRISC6 043E                _TRISC7 043F             ??_Uart_tx 0070  
+              _atcall 002E                _noecho 0020                _nomesg 00CC          __pdataCOMMON 0078  
+      __pcstackCOMMON 0070          __pidataBANK0 06B8          __pidataBANK1 06FC            __pmaintext 0631  
+  __size_of_uart_init 0015               _Uart_tx 0625           pir_sensor@j 0076           Uart_tx@data 0070  
+        __size_of_LED 000B  end_of_initialization 06B4               init_ram 0645            _pir_sensor 074C  
+   __end_of_uart_init 0667            _uart_print 0667            _terminator 0027         __pidataCOMMON 0616  
+ start_initialization 0681           __end_of_LED 0625           ?_pir_sensor 0070           __pdataBANK0 0020  
+         __pdataBANK1 00A0           ?_uart_print 0070             _char_mode 0034              ?_Uart_tx 0070  
+           __ptext163 074C             __ptext164 0667             __ptext165 0652             __ptext166 061A  
+           __ptext167 0625             __ptext168 0000   __size_of_pir_sensor 00B4             _mode_text 0053  
+           _mobile_no 00A0   __size_of_uart_print 001A             _uart_init 0652             init_fetch 0641  
+          ?_uart_init 0070      __size_of_Uart_tx 000C         __size_of_main 0010          ??_pir_sensor 0073  
+        ??_uart_print 0071    __end_of_pir_sensor 0800    __end_of_uart_print 0681           ??_uart_init 0070  
+       uart_print@str 0072  
